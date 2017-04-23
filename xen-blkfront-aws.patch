@@ -1,0 +1,13 @@
+Follow the AWS EBS tuning guide for Xen-blkfront
+
+--- linux-4.10.10/drivers/block/xen-blkfront.c~	2017-04-12 10:43:04.000000000 +0000
++++ linux-4.10.10/drivers/block/xen-blkfront.c	2017-04-23 18:56:59.135533875 +0000
+@@ -124,7 +124,7 @@
+  * by the backend driver.
+  */
+ 
+-static unsigned int xen_blkif_max_segments = 32;
++static unsigned int xen_blkif_max_segments = 256;
+ module_param_named(max_indirect_segments, xen_blkif_max_segments, uint,
+ 		   S_IRUGO);
+ MODULE_PARM_DESC(max_indirect_segments,
