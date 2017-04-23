@@ -1,0 +1,11 @@
+--- linux-4.10.10/drivers/xen/xenbus/xenbus_probe_frontend.c~	2017-04-12 10:43:04.000000000 +0000
++++ linux-4.10.10/drivers/xen/xenbus/xenbus_probe_frontend.c	2017-04-23 01:14:27.141482326 +0000
+@@ -267,7 +267,7 @@
+ 		}
+ 	}
+ 
+-	schedule_timeout_interruptible(HZ/10);
++	schedule_timeout_interruptible(HZ/50);
+ 
+ 	return false;
+ }

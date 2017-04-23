@@ -5,7 +5,7 @@
 
 Name:           linux-aws
 Version:        4.10.12
-Release:        6
+Release:        7
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
@@ -60,7 +60,7 @@ Patch0121: 0121-ipv4-tcp-allow-the-memory-tuning-for-tcp-to-go-a-lit.patch
 Patch0122: 0122-igb-no-runtime-pm-to-fix-reboot-oops.patch
 Patch0123: 0123-tweak-perfbias.patch
 Patch0124: 0124-e1000e-increase-pause-and-refresh-time.patch
-
+Patch0125: xen-dont-be-slow.patch
 
 %description
 The Linux kernel.
@@ -103,6 +103,7 @@ Linux kernel extra files
 %patch0122 -p1
 %patch0123 -p1
 %patch0124 -p1
+%patch0125 -p1
 
 
 cp %{SOURCE1} .
