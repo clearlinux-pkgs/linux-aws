@@ -5,7 +5,7 @@
 
 Name:           linux-aws
 Version:        4.10.13
-Release:        14
+Release:        15
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
@@ -62,6 +62,7 @@ Patch0123: 0123-tweak-perfbias.patch
 Patch0124: 0124-e1000e-increase-pause-and-refresh-time.patch
 Patch0125: xen-dont-be-slow.patch
 Patch0126: xen-blkfront-aws.patch
+Patch0127: ntp-wakeups.patch
 
 %description
 The Linux kernel.
@@ -106,6 +107,7 @@ Linux kernel extra files
 %patch0124 -p1
 %patch0125 -p1
 %patch0126 -p1
+%patch0127 -p1
 
 
 cp %{SOURCE1} .
