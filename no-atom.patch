@@ -1,0 +1,10 @@
+--- linux-4.11/drivers/platform/x86/Kconfig~	2017-05-01 02:47:48.000000000 +0000
++++ linux-4.11/drivers/platform/x86/Kconfig	2017-05-01 03:21:10.316794384 +0000
+@@ -1091,6 +1091,6 @@
+ endif # X86_PLATFORM_DEVICES
+ 
+ config PMC_ATOM
+-       def_bool y
++       def_bool n
+        depends on PCI
+        select COMMON_CLK
