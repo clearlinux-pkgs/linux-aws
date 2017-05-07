@@ -5,7 +5,32 @@
  	}
  
 -	schedule_timeout_interruptible(HZ/10);
-+	schedule_timeout_interruptible(HZ/50);
++	schedule_timeout_interruptible(1);
  
  	return false;
  }
+--- linux-4.11/drivers/xen/xenbus/xenbus_probe_frontend.c~	2017-05-01 02:47:48.000000000 +0000
++++ linux-4.11/drivers/xen/xenbus/xenbus_probe_frontend.c	2017-05-06 23:44:50.509921919 +0000
+@@ -177,6 +177,7 @@
+ 	struct xenbus_device *xendev = to_xenbus_device(dev);
+ 	struct device_driver *drv = data;
+ 	struct xenbus_driver *xendrv;
++	int ret;
+ 
+ 	/*
+ 	 * A device with no driver will never connect. We care only about
+@@ -202,9 +203,13 @@
+ 			return 0;
+ 	}
+ 	xendrv = to_xenbus_driver(dev->driver);
+-	return (xendev->state < XenbusStateConnected ||
++	ret = (xendev->state < XenbusStateConnected ||
+ 		(xendev->state == XenbusStateConnected &&
+ 		 xendrv->is_ready && !xendrv->is_ready(xendev)));
++
++	if (ret)
++		dev_info(dev, " connecting\n");
++	return ret;
+ }
+ static int essential_device_connecting(struct device *dev, void *data)
+ {

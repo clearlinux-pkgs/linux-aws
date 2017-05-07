@@ -7,7 +7,7 @@ Follow the AWS EBS tuning guide for Xen-blkfront
   */
  
 -static unsigned int xen_blkif_max_segments = 32;
-+static unsigned int xen_blkif_max_segments = 256;
++static unsigned int xen_blkif_max_segments = 128;
  module_param_named(max_indirect_segments, xen_blkif_max_segments, uint,
  		   S_IRUGO);
  MODULE_PARM_DESC(max_indirect_segments,
