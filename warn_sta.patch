@@ -1,0 +1,22 @@
+--- linux-4.11.1/drivers/acpi/utils.c~	2017-05-14 18:11:42.000000000 +0000
++++ linux-4.11.1/drivers/acpi/utils.c	2017-05-14 22:48:08.424647864 +0000
+@@ -286,6 +286,7 @@
+ 		      struct acpi_object_list *arguments, unsigned long long *data)
+ {
+ 	acpi_status status = AE_OK;
++	static int counter;
+ 	union acpi_object element;
+ 	struct acpi_buffer buffer = { 0, NULL };
+ 	struct acpi_namespace_node *node;
+@@ -319,6 +320,11 @@
+ 		node->cached_ADR = element.integer.value;;
+ 	}
+ 
++	if (strcmp(pathname, "_STA") == 0) {
++		if ((counter++ % 50) == 0)
++			WARN_ON(1);
++	}
++
+ 	ACPI_DEBUG_PRINT((ACPI_DB_INFO, "Return value [%llu]\n", *data));
+ 
+ 	return AE_OK;

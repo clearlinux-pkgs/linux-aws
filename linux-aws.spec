@@ -5,7 +5,7 @@
 
 Name:           linux-aws
 Version:        4.11.1
-Release:        22
+Release:        23
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
@@ -63,7 +63,11 @@ Patch0126: xen-blkfront-aws.patch
 Patch0127: ntp-wakeups.patch
 Patch0128: vmstat.patch
 Patch0129: no-atom.patch
+Patch0130: cache_ADR.patch
+Patch0131: status_cache.patch
 
+Patch1000: verbose_acpi.patch
+Patch1001: warn_sta.patch
 %description
 The Linux kernel.
 
@@ -108,6 +112,11 @@ Linux kernel extra files
 %patch0127 -p1
 %patch0128 -p1
 %patch0129 -p1
+%patch0130 -p1
+%patch0131 -p1
+
+#%patch1000 -p1
+#%patch1001 -p1
 
 
 cp %{SOURCE1} .
