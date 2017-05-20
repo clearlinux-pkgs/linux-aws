@@ -4,13 +4,13 @@
 #
 
 Name:           linux-aws
-Version:        4.11.1
+Version:        4.11.2
 Release:        23
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.11.1.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.11.2.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -68,6 +68,8 @@ Patch0131: status_cache.patch
 
 Patch1000: verbose_acpi.patch
 Patch1001: warn_sta.patch
+Patch1002: print_adr.patch
+
 %description
 The Linux kernel.
 
@@ -80,7 +82,7 @@ Group:          kernel
 Linux kernel extra files
 
 %prep
-%setup -q -n linux-4.11.1
+%setup -q -n linux-4.11.2
 
 #     000X  cve, bugfixes patches
 
@@ -117,7 +119,7 @@ Linux kernel extra files
 
 #%patch1000 -p1
 #%patch1001 -p1
-
+%patch1002 -p1
 
 cp %{SOURCE1} .
 
