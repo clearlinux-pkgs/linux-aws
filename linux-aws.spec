@@ -5,7 +5,7 @@
 
 Name:           linux-aws
 Version:        4.11.2
-Release:        23
+Release:        24
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
@@ -26,6 +26,8 @@ BuildRequires:  flex
 BuildRequires:  bison
 BuildRequires:  kmod
 BuildRequires:  lz4
+
+Requires: init-rdahead
 
 
 # don't strip .ko files!
@@ -119,7 +121,7 @@ Linux kernel extra files
 
 #%patch1000 -p1
 #%patch1001 -p1
-%patch1002 -p1
+#%patch1002 -p1
 
 cp %{SOURCE1} .
 
