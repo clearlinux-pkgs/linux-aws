@@ -5,7 +5,7 @@
 
 Name:           linux-aws
 Version:        4.11.3
-Release:        27
+Release:        28
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
@@ -36,6 +36,7 @@ Requires: init-rdahead
 %define __strip /bin/true
 
 #    000X: cve, bugfixes patches
+Patch0001: cve-2017-9242.patch
 
 #    00XY: Mainline patches, upstream backports
 
@@ -87,6 +88,7 @@ Linux kernel extra files
 %setup -q -n linux-4.11.3
 
 #     000X  cve, bugfixes patches
+%patch0001 -p1
 
 #     00XY  Mainline patches, upstream backports
 
