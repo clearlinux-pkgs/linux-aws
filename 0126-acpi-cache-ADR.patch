@@ -1,0 +1,68 @@
+From bc6abe65c820e5f56692a0ec29a435db5547f444 Mon Sep 17 00:00:00 2001
+From: Arjan van de Ven <arjan@linux.intel.com>
+Date: Sun, 14 May 2017 23:53:08 +0000
+Subject: [PATCH 126/127] acpi: cache ADR
+
+---
+ drivers/acpi/acpica/aclocal.h |  1 +
+ drivers/acpi/utils.c          | 14 ++++++++++++++
+ 2 files changed, 15 insertions(+)
+
+diff --git a/drivers/acpi/acpica/aclocal.h b/drivers/acpi/acpica/aclocal.h
+index f9b3f7fef462..d667c8e91ee4 100644
+--- a/drivers/acpi/acpica/aclocal.h
++++ b/drivers/acpi/acpica/aclocal.h
+@@ -174,6 +174,7 @@ struct acpi_namespace_node {
+ 	struct acpi_namespace_node *parent;	/* Parent node */
+ 	struct acpi_namespace_node *child;	/* First child */
+ 	struct acpi_namespace_node *peer;	/* First peer */
++	u64 cached_ADR;		/* Cached value of the _ADR method */
+ 
+ 	/*
+ 	 * The following fields are used by the ASL compiler and disassembler only
+diff --git a/drivers/acpi/utils.c b/drivers/acpi/utils.c
+index 27d0dcfcf47d..20d4c1ee8a15 100644
+--- a/drivers/acpi/utils.c
++++ b/drivers/acpi/utils.c
+@@ -30,6 +30,8 @@
+ 
+ #include "internal.h"
+ #include "sleep.h"
++#include "acpica/aclocal.h"
++struct acpi_namespace_node *acpi_ns_validate_handle(acpi_handle handle);
+ 
+ #define _COMPONENT		ACPI_BUS_COMPONENT
+ ACPI_MODULE_NAME("utils");
+@@ -287,10 +289,18 @@ acpi_evaluate_integer(acpi_handle handle,
+ 	acpi_status status = AE_OK;
+ 	union acpi_object element;
+ 	struct acpi_buffer buffer = { 0, NULL };
++	struct acpi_namespace_node *node;
+ 
+ 	if (!data)
+ 		return AE_BAD_PARAMETER;
+ 
++	node = acpi_ns_validate_handle(handle);
++	/* the _ADR cache */
++	if (strcmp(pathname, "_ADR") == 0 && node && node->cached_ADR) {
++		*data = node->cached_ADR;
++		return AE_OK;
++	}
++
+ 	buffer.length = sizeof(union acpi_object);
+ 	buffer.pointer = &element;
+ 	status = acpi_evaluate_object(handle, pathname, arguments, &buffer);
+@@ -306,6 +316,10 @@ acpi_evaluate_integer(acpi_handle handle,
+ 
+ 	*data = element.integer.value;
+ 
++	if (strcmp(pathname, "_ADR") == 0 && node) {
++		node->cached_ADR = element.integer.value;
++	}
++
+ 	ACPI_DEBUG_PRINT((ACPI_DB_INFO, "Return value [%llu]\n", *data));
+ 
+ 	return AE_OK;
+-- 
+2.13.2
+

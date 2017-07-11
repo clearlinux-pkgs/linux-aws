@@ -1,0 +1,24 @@
+From 8b393762128e6b7ee7cf3fd3a0c7886aa414c2e1 Mon Sep 17 00:00:00 2001
+From: Arjan van de Ven <arjan@linux.intel.com>
+Date: Mon, 1 May 2017 03:37:38 +0000
+Subject: [PATCH 125/127] config: no Atom
+
+---
+ drivers/platform/x86/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/platform/x86/Kconfig b/drivers/platform/x86/Kconfig
+index 8489020ecf44..cda343e5a8b1 100644
+--- a/drivers/platform/x86/Kconfig
++++ b/drivers/platform/x86/Kconfig
+@@ -1113,6 +1113,6 @@ config SILEAD_DMI
+ endif # X86_PLATFORM_DEVICES
+ 
+ config PMC_ATOM
+-       def_bool y
++       def_bool n
+        depends on PCI
+        select COMMON_CLK
+-- 
+2.13.2
+

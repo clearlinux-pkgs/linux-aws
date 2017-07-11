@@ -1,8 +1,18 @@
-Follow the AWS EBS tuning guide for Xen-blkfront
+From 6594fa8134d8ea421d2165234bacb0e9613a01b0 Mon Sep 17 00:00:00 2001
+From: Arjan van de Ven <arjan@linux.intel.com>
+Date: Sun, 7 May 2017 00:34:01 +0000
+Subject: [PATCH 122/127] xen: blkfront: small tunning for block dev
 
---- linux-4.10.10/drivers/block/xen-blkfront.c~	2017-04-12 10:43:04.000000000 +0000
-+++ linux-4.10.10/drivers/block/xen-blkfront.c	2017-04-23 18:56:59.135533875 +0000
-@@ -124,7 +124,7 @@
+Follow the AWS EBS tuning guide for Xen-blkfront
+---
+ drivers/block/xen-blkfront.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/block/xen-blkfront.c b/drivers/block/xen-blkfront.c
+index 39459631667c..3ff0fa0dd77e 100644
+--- a/drivers/block/xen-blkfront.c
++++ b/drivers/block/xen-blkfront.c
+@@ -133,13 +133,13 @@ static const struct block_device_operations xlvbd_block_fops;
   * by the backend driver.
   */
  
@@ -11,10 +21,6 @@ Follow the AWS EBS tuning guide for Xen-blkfront
  module_param_named(max_indirect_segments, xen_blkif_max_segments, uint,
  		   S_IRUGO);
  MODULE_PARM_DESC(max_indirect_segments,
---- linux-4.11/drivers/block/xen-blkfront.c~	2017-05-01 02:47:48.000000000 +0000
-+++ linux-4.11/drivers/block/xen-blkfront.c	2017-05-01 13:24:10.379404903 +0000
-@@ -130,7 +130,7 @@
- MODULE_PARM_DESC(max_indirect_segments,
  		 "Maximum amount of segments in indirect requests (default is 32)");
  
 -static unsigned int xen_blkif_max_queues = 4;
@@ -22,3 +28,6 @@ Follow the AWS EBS tuning guide for Xen-blkfront
  module_param_named(max_queues, xen_blkif_max_queues, uint, S_IRUGO);
  MODULE_PARM_DESC(max_queues, "Maximum number of hardware queues/rings used per virtual disk");
  
+-- 
+2.13.2
+
