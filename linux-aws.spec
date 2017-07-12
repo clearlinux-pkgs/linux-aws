@@ -4,13 +4,13 @@
 #
 
 Name:           linux-aws
-Version:        4.12.0
-Release:        34
+Version:        4.12.1
+Release:        35
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.12.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.12.1.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -85,7 +85,7 @@ Group:          kernel
 Linux kernel extra files
 
 %prep
-%setup -q -n linux-4.12
+%setup -q -n linux-4.12.1
 
 #     000X  cve, bugfixes patches
 
