@@ -1,0 +1,11 @@
+--- linux-4.13.12/drivers/nvme/host/core.c~	2017-11-08 09:17:19.000000000 +0000
++++ linux-4.13.12/drivers/nvme/host/core.c	2017-11-11 20:16:55.034933589 +0000
+@@ -1388,7 +1388,7 @@
+ 		if ((csts & NVME_CSTS_RDY) == bit)
+ 			break;
+ 
+-		msleep(100);
++		msleep(2);
+ 		if (fatal_signal_pending(current))
+ 			return -EINTR;
+ 		if (time_after(jiffies, timeout)) {

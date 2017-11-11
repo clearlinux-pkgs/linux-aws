@@ -1,0 +1,34 @@
+--- linux-4.13.12/drivers/net/ethernet/amazon/ena/ena_netdev.c~	2017-11-11 19:42:19.000000000 +0000
++++ linux-4.13.12/drivers/net/ethernet/amazon/ena/ena_netdev.c	2017-11-11 20:31:59.287661358 +0000
+@@ -35,6 +35,7 @@
+ #ifdef CONFIG_RFS_ACCEL
+ #include <linux/cpu_rmap.h>
+ #endif /* CONFIG_RFS_ACCEL */
++#include <linux/async.h>
+ #include <linux/ethtool.h>
+ #include <linux/if_vlan.h>
+ #include <linux/kernel.h>
+@@ -3454,6 +3455,13 @@
+ 	.sriov_configure = ena_sriov_configure,
+ };
+ 
++ASYNC_DOMAIN_EXCLUSIVE(ena_domain);
++
++static void pci_register_driver_async(void *data, async_cookie_t cookie)
++{
++	pci_register_driver(data);
++}
++
+ static int __init ena_init(void)
+ {
+ 	pr_info("%s", version);
+@@ -3464,7 +3472,8 @@
+ 		return -ENOMEM;
+ 	}
+ 
+-	return pci_register_driver(&ena_pci_driver);
++	async_schedule_domain(pci_register_driver_async, &ena_pci_driver, &ena_domain);
++	return 0;
+ }
+ 
+ static void __exit ena_cleanup(void)

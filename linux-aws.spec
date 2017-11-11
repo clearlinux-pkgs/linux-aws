@@ -4,13 +4,13 @@
 #
 
 Name:           linux-aws
-Version:        4.13.1
-Release:        46
+Version:        4.13.12
+Release:        54
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.13.1.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.13.12.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -69,9 +69,10 @@ Patch0125: 0125-config-no-Atom.patch
 Patch0126: 0126-acpi-cache-ADR.patch
 Patch0127: 0127-acpi-status-cache.patch
 
-#Patch1001: 1001-acpi-verbose.patch
-#Patch1002: 1002-acpi-warn-STA.patch
-#Patch1003: 1003-acpi-print-ADR.patch
+Patch0128: ena-update.patch
+Patch0129: 0125-init-wait-for-partition-and-retry-scan.patch
+Patch0130: nvme.patch
+Patch0131: ena-async.patch
 
 
 %description
@@ -86,7 +87,7 @@ Group:          kernel
 Linux kernel extra files
 
 %prep
-%setup -q -n linux-4.13.1
+%setup -q -n linux-4.13.12
 
 #     000X  cve, bugfixes patches
 %patch0001 -p1
@@ -121,6 +122,10 @@ Linux kernel extra files
 %patch0125 -p1
 %patch0126 -p1
 %patch0127 -p1
+%patch0128 -p1
+%patch0129 -p1
+%patch0130 -p1
+%patch0131 -p1
 
 #%patch1001 -p1
 #%patch1002 -p1
