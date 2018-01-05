@@ -4,13 +4,13 @@
 #
 
 Name:           linux-aws
-Version:        4.14.9
-Release:        56
+Version:        4.14.12
+Release:        57
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.14.9.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.14.12.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -36,7 +36,6 @@ Requires: init-rdahead
 %define __strip /bin/true
 
 #    000X: cve, bugfixes patches
-Patch0001: cve-2017-13693.patch
 
 #    00XY: Mainline patches, upstream backports
 
@@ -86,10 +85,9 @@ Group:          kernel
 Linux kernel extra files
 
 %prep
-%setup -q -n linux-4.14.9
+%setup -q -n linux-4.14.12
 
 #     000X  cve, bugfixes patches
-%patch0001 -p1
 
 #     00XY  Mainline patches, upstream backports
 
