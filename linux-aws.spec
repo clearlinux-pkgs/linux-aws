@@ -10,7 +10,7 @@ License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.14.12.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.14.15.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -73,6 +73,7 @@ Patch0129: 0125-init-wait-for-partition-and-retry-scan.patch
 Patch0130: nvme.patch
 Patch0131: ena-async.patch
 
+Patch0200: zero-regs.patch
 
 %description
 The Linux kernel.
@@ -86,7 +87,7 @@ Group:          kernel
 Linux kernel extra files
 
 %prep
-%setup -q -n linux-4.14.12
+%setup -q -n linux-4.14.15
 
 #     000X  cve, bugfixes patches
 %patch0001 -p1
@@ -124,6 +125,8 @@ Linux kernel extra files
 %patch0129 -p1
 %patch0130 -p1
 %patch0131 -p1
+
+%patch0200 -p1
 
 #%patch1001 -p1
 #%patch1002 -p1
