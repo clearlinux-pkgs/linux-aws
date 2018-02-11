@@ -4,13 +4,13 @@
 #
 
 Name:           linux-aws
-Version:        4.14.15
+Version:        4.14.18
 Release:        60
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.14.15.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.14.18.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -87,7 +87,7 @@ Group:          kernel
 Linux kernel extra files
 
 %prep
-%setup -q -n linux-4.14.15
+%setup -q -n linux-4.14.18
 
 #     000X  cve, bugfixes patches
 %patch0001 -p1
