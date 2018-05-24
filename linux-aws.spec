@@ -4,13 +4,13 @@
 #
 
 Name:           linux-aws
-Version:        4.14.21
-Release:        63
+Version:        4.16.9
+Release:        64
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.14.21.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.16.9.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -36,9 +36,26 @@ Requires: init-rdahead
 %define __strip /bin/true
 
 #    000X: cve, bugfixes patches
-Patch0001: cve-2017-13693.patch
 
 #    00XY: Mainline patches, upstream backports
+
+Patch0040: 0001-idle-from-rafael.patch
+Patch0041: 0002-idle-from-rafael.patch
+
+Patch0051: 0001-time-tick-sched-Reorganize-idle-tick-management-code.patch
+Patch0052: 0002-sched-idle-Do-not-stop-the-tick-upfront-in-the-idle-.patch
+Patch0053: 0003-sched-idle-Do-not-stop-the-tick-before-cpuidle_idle_.patch
+Patch0054: 0004-jiffies-Introduce-USER_TICK_USEC-and-redefine-TICK_U.patch
+Patch0055: 0005-cpuidle-Return-nohz-hint-from-cpuidle_select.patch
+Patch0056: 0006-time-tick-sched-Split-tick_nohz_stop_sched_tick.patch
+Patch0057: 0007-time-hrtimer-Introduce-hrtimer_next_event_without.patch
+Patch0058: 0008-sched-idle-Select-idle-state-before-stopping-the-tic.patch
+Patch0059: 0009-cpuidle-menu-Refine-idle-state-selection-for-running.patch
+Patch0060: 0010-cpuidle-menu-Avoid-selecting-shallow-states-with-sto.patch
+Patch0061: 0011-nohz-Gather-tick_sched-booleans-under-a-common-flag-.patch
+Patch0062: 0012-nohz-Avoid-duplication-of-code-related-to-got_idle_t.patch
+Patch0063: 0013-time-hrtimer-Use-timerqueue_iterate_next-to-get-to-t.patch
+Patch0064: 0099-fixup-idle.patch
 
 # Serie    01XX: Clear Linux patches
 Patch0101: 0101-i8042-decrease-debug-message-level-to-info.patch
@@ -47,33 +64,24 @@ Patch0103: 0103-Increase-the-ext4-default-commit-age.patch
 Patch0104: 0104-silence-rapl.patch
 Patch0105: 0105-pci-pme-wakeups.patch
 Patch0106: 0106-ksm-wakeups.patch
-Patch0107: 0107-xattr-allow-setting-user.-attributes-on-symlinks-by-.patch
-Patch0108: 0108-init_task-faster-timerslack.patch
-Patch0109: 0109-overload-on-wakeup.patch
-Patch0110: 0110-bootstats-add-printk-s-to-measure-boot-time-in-more-.patch
-Patch0111: 0111-fix-initcall-timestamps.patch
-Patch0112: 0112-smpboot-reuse-timer-calibration.patch
-Patch0113: 0113-raid6-add-Kconfig-option-to-skip-raid6-benchmarking.patch
-Patch0114: 0114-reduce-e1000e-boot-time-by-tightening-sleep-ranges.patch
-Patch0115: 0115-give-rdrand-some-credit.patch
-Patch0116: 0116-e1000e-change-default-policy.patch
-Patch0117: 0117-ipv4-tcp-allow-the-memory-tuning-for-tcp-to-go-a-lit.patch
-Patch0118: 0118-igb-no-runtime-pm-to-fix-reboot-oops.patch
-Patch0119: 0119-tweak-perfbias.patch
-Patch0120: 0120-e1000e-increase-pause-and-refresh-time.patch
+Patch0108: 0108-xattr-allow-setting-user.-attributes-on-symlinks-by-.patch
+Patch0111: 0111-overload-on-wakeup.patch
+Patch0112: 0112-bootstats-add-printk-s-to-measure-boot-time-in-more-.patch
+Patch0113: 0113-fix-initcall-timestamps.patch
+Patch0114: 0114-smpboot-reuse-timer-calibration.patch
+Patch0115: 0115-igb-no-runtime-pm-to-fix-reboot-oops.patch
+Patch0117: 0117-reduce-e1000e-boot-time-by-tightening-sleep-ranges.patch
+Patch0118: 0118-give-rdrand-some-credit.patch
+Patch0120: 0120-ipv4-tcp-allow-the-memory-tuning-for-tcp-to-go-a-lit.patch
 Patch0121: 0121-xen-xenbus-don-t-be-slow.patch
 Patch0122: 0122-xen-blkfront-small-tunning-for-block-dev.patch
-Patch0123: 0123-time-ntp-fix-wakeups.patch
+Patch0123: 0122-tweak-perfbias.patch
+#Patch0123: 0123-time-ntp-fix-wakeups.patch
 Patch0124: 0124-mm-reduce-vmstat-wakups.patch
 Patch0125: 0125-config-no-Atom.patch
 Patch0126: 0126-acpi-cache-ADR.patch
 Patch0127: 0127-acpi-status-cache.patch
-
-Patch0129: 0125-init-wait-for-partition-and-retry-scan.patch
-Patch0130: nvme.patch
-Patch0131: ena-async.patch
-
-Patch0200: zero-regs.patch
+Patch0128: 0125-init-wait-for-partition-and-retry-scan.patch
 
 %description
 The Linux kernel.
@@ -87,12 +95,30 @@ Group:          kernel
 Linux kernel extra files
 
 %prep
-%setup -q -n linux-4.14.21
+%setup -q -n linux-4.16.9
 
 #     000X  cve, bugfixes patches
-%patch0001 -p1
 
 #     00XY  Mainline patches, upstream backports
+
+%patch0040 -p1
+%patch0041 -p1
+
+
+%patch0051 -p1
+%patch0052 -p1
+%patch0053 -p1
+%patch0054 -p1
+%patch0055 -p1
+%patch0056 -p1
+%patch0057 -p1
+%patch0058 -p1
+%patch0059 -p1
+%patch0060 -p1
+%patch0061 -p1
+%patch0062 -p1
+%patch0063 -p1
+%patch0064 -p1
 
 #     01XX  Clear Linux patches
 %patch0101 -p1
@@ -101,19 +127,14 @@ Linux kernel extra files
 %patch0104 -p1
 %patch0105 -p1
 %patch0106 -p1
-%patch0107 -p1
 %patch0108 -p1
-%patch0109 -p1
-%patch0110 -p1
 %patch0111 -p1
 %patch0112 -p1
 %patch0113 -p1
 %patch0114 -p1
 %patch0115 -p1
-%patch0116 -p1
 %patch0117 -p1
 %patch0118 -p1
-%patch0119 -p1
 %patch0120 -p1
 %patch0121 -p1
 %patch0122 -p1
@@ -122,11 +143,7 @@ Linux kernel extra files
 %patch0125 -p1
 %patch0126 -p1
 %patch0127 -p1
-%patch0129 -p1
-%patch0130 -p1
-%patch0131 -p1
-
-%patch0200 -p1
+%patch0128 -p1
 
 #%patch1001 -p1
 #%patch1002 -p1
@@ -146,7 +163,7 @@ BuildKernel() {
     make -s mrproper
     cp config .config
 
-    make -s ARCH=$Arch oldconfig > /dev/null
+    make -s ARCH=$Arch olddefconfig 
     make -s CONFIG_DEBUG_SECTION_MISMATCH=y %{?_smp_mflags} ARCH=$Arch %{?sparse_mflags}
 }
 
