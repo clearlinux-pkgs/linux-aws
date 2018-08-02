@@ -82,6 +82,7 @@ Patch0125: 0125-config-no-Atom.patch
 Patch0126: 0126-acpi-cache-ADR.patch
 Patch0127: 0127-acpi-status-cache.patch
 Patch0128: 0125-init-wait-for-partition-and-retry-scan.patch
+Patch0129: 0129-Migrate-some-systemd-defaults-to-the-kernel-defaults.patch
 
 %description
 The Linux kernel.
@@ -144,6 +145,7 @@ Linux kernel extra files
 %patch0126 -p1
 %patch0127 -p1
 %patch0128 -p1
+%patch0129 -p1
 
 #%patch1001 -p1
 #%patch1002 -p1
