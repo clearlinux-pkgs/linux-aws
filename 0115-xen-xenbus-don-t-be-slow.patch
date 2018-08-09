@@ -1,0 +1,48 @@
+From 9da0bb9ae5674baa2e0d6cfd09fac4591d67c1b5 Mon Sep 17 00:00:00 2001
+From: Arjan van de Ven <arjan@linux.intel.com>
+Date: Sun, 7 May 2017 00:34:01 +0000
+Subject: [PATCH 115/125] xen: xenbus: don't be slow
+
+---
+ drivers/xen/xenbus/xenbus_probe_frontend.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/xen/xenbus/xenbus_probe_frontend.c b/drivers/xen/xenbus/xenbus_probe_frontend.c
+index 07896f4b2736..f35635a75063 100644
+--- a/drivers/xen/xenbus/xenbus_probe_frontend.c
++++ b/drivers/xen/xenbus/xenbus_probe_frontend.c
+@@ -177,6 +177,7 @@ static int is_device_connecting(struct device *dev, void *data, bool ignore_none
+ 	struct xenbus_device *xendev = to_xenbus_device(dev);
+ 	struct device_driver *drv = data;
+ 	struct xenbus_driver *xendrv;
++	int ret;
+ 
+ 	/*
+ 	 * A device with no driver will never connect. We care only about
+@@ -202,9 +203,13 @@ static int is_device_connecting(struct device *dev, void *data, bool ignore_none
+ 			return 0;
+ 	}
+ 	xendrv = to_xenbus_driver(dev->driver);
+-	return (xendev->state < XenbusStateConnected ||
++	ret = (xendev->state < XenbusStateConnected ||
+ 		(xendev->state == XenbusStateConnected &&
+ 		 xendrv->is_ready && !xendrv->is_ready(xendev)));
++
++	if (ret)
++		dev_info(dev, " connecting\n");
++	return ret;
+ }
+ static int essential_device_connecting(struct device *dev, void *data)
+ {
+@@ -266,7 +271,7 @@ static bool wait_loop(unsigned long start, unsigned int max_delay,
+ 		}
+ 	}
+ 
+-	schedule_timeout_interruptible(HZ/10);
++	schedule_timeout_interruptible(1);
+ 
+ 	return false;
+ }
+-- 
+2.18.0
+

@@ -1,0 +1,48 @@
+From 16bb4925f2e4c50e932cd3a178a8587865f91ac5 Mon Sep 17 00:00:00 2001
+From: Arjan van de Ven <arjan@linux.intel.com>
+Date: Sat, 11 Nov 2017 21:45:31 +0000
+Subject: [PATCH 123/125] ena: asnync
+
+---
+ drivers/net/ethernet/amazon/ena/ena_netdev.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/amazon/ena/ena_netdev.c b/drivers/net/ethernet/amazon/ena/ena_netdev.c
+index a822e70c2af3..2e48fdcc9653 100644
+--- a/drivers/net/ethernet/amazon/ena/ena_netdev.c
++++ b/drivers/net/ethernet/amazon/ena/ena_netdev.c
+@@ -35,6 +35,7 @@
+ #ifdef CONFIG_RFS_ACCEL
+ #include <linux/cpu_rmap.h>
+ #endif /* CONFIG_RFS_ACCEL */
++#include <linux/async.h>
+ #include <linux/ethtool.h>
+ #include <linux/if_vlan.h>
+ #include <linux/kernel.h>
+@@ -3529,6 +3530,13 @@ static struct pci_driver ena_pci_driver = {
+ 	.sriov_configure = ena_sriov_configure,
+ };
+ 
++ASYNC_DOMAIN_EXCLUSIVE(ena_domain);
++
++static void pci_register_driver_async(void *data, async_cookie_t cookie)
++{
++	pci_register_driver(data);
++}
++
+ static int __init ena_init(void)
+ {
+ 	pr_info("%s", version);
+@@ -3539,7 +3547,8 @@ static int __init ena_init(void)
+ 		return -ENOMEM;
+ 	}
+ 
+-	return pci_register_driver(&ena_pci_driver);
++	async_schedule_domain(pci_register_driver_async, &ena_pci_driver, &ena_domain);
++	return 0;
+ }
+ 
+ static void __exit ena_cleanup(void)
+-- 
+2.18.0
+

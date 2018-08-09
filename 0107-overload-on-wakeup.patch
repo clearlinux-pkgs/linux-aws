@@ -1,0 +1,43 @@
+From c71682f637288a2aa9f6143e8ffe173476c90509 Mon Sep 17 00:00:00 2001
+From: jplozi <jplozi@unice.fr>
+Date: Fri, 11 Mar 2016 15:18:06 +0100
+Subject: [PATCH 107/125] overload on wakeup
+
+source https://github.com/jplozi/wastedcores
+
+as an experiment, apply the learnings from the wasted-cores paper
+and see how the performance works out. With the data from this we should
+be able to work with Peter and the rest of the scheduler folks on
+a more permanent/elegant solution.
+---
+ kernel/sched/fair.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index 79f574dba096..30543efccf29 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -6571,6 +6571,20 @@ select_task_rq_fair(struct task_struct *p, int prev_cpu, int sd_flag, int wake_f
+ 	}
+ 
+ 	rcu_read_lock();
++
++	if (cpu_rq(prev_cpu)->nr_running) {
++		int _cpu;
++
++		for_each_online_cpu(_cpu) {
++			if (!cpumask_test_cpu(_cpu, &(p->cpus_allowed)) ||
++				cpu_rq(_cpu)->nr_running)
++				continue;
++
++			rcu_read_unlock();
++			return _cpu;
++		}
++	}
++
+ 	for_each_domain(cpu, tmp) {
+ 		if (!(tmp->flags & SD_LOAD_BALANCE))
+ 			break;
+-- 
+2.18.0
+
