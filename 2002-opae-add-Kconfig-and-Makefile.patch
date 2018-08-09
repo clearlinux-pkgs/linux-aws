@@ -1,0 +1,34 @@
+From 1cbc611a7b7fa5a61524179cd39792441f78a62b Mon Sep 17 00:00:00 2001
+From: Miguel Bernal Marin <miguel.bernal.marin@linux.intel.com>
+Date: Thu, 1 Feb 2018 11:08:18 -0600
+Subject: [PATCH 2002/2002] opae: add Kconfig and Makefile
+
+Signed-off-by: Miguel Bernal Marin <miguel.bernal.marin@linux.intel.com>
+---
+ drivers/Makefile     | 1 +
+ drivers/fpga/Kconfig | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/drivers/Makefile b/drivers/Makefile
+index 46053df6f069..48b6d693e752 100644
+--- a/drivers/Makefile
++++ b/drivers/Makefile
+@@ -183,6 +183,7 @@ obj-$(CONFIG_ANDROID)		+= android/
+ obj-$(CONFIG_ANDROID)		+= android/
+ obj-$(CONFIG_NVMEM)		+= nvmem/
+ obj-$(CONFIG_FPGA)		+= fpga/
++obj-$(CONFIG_FPGA_INTEL_OPAE)	+= fpga/intel/
+ obj-$(CONFIG_FSI)		+= fsi/
+ obj-$(CONFIG_TEE)		+= tee/
+ obj-$(CONFIG_MULTIPLEXER)	+= mux/
+--- linux-4.16.1/drivers/fpga/Kconfig~	2018-04-08 12:29:52.000000000 +0000
++++ linux-4.16.1/drivers/fpga/Kconfig	2018-04-08 16:32:22.109015136 +0000
+@@ -109,6 +109,8 @@
+ 	  region of the FPGA from the busses while that region is
+ 	  being reprogrammed during partial reconfig.
+ 
++source "drivers/fpga/intel/Kconfig"
++
+ config FPGA_REGION
+ 	tristate "FPGA Region"
+ 	depends on FPGA_BRIDGE
