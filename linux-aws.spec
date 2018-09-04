@@ -4,13 +4,13 @@
 #
 
 Name:           linux-aws
-Version:        4.17.14
-Release:        69
+Version:        4.18.5
+Release:        70
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.17.14.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.18.5.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -66,7 +66,7 @@ Patch0119: 0119-config-no-Atom.patch
 Patch0120: 0120-acpi-cache-ADR.patch
 Patch0121: 0121-acpi-status-cache.patch
 Patch0122: 0122-init-wait-for-partition-and-retry-scan.patch
-Patch0123: 0123-ena-asnync.patch
+Patch0123: 0123-ena-async.patch
 Patch0124: 0124-nvme-decrease-msleep.patch
 Patch0125: 0125-zero-extra-registers.patch
 
@@ -82,7 +82,7 @@ Group:          kernel
 Linux kernel extra files
 
 %prep
-%setup -q -n linux-4.17.14
+%setup -q -n linux-4.18.5
 
 #     000X  cve, bugfixes patches
 
