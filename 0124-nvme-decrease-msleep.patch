@@ -1,4 +1,4 @@
-From ea26bf3f3c322fcfbc2365e065f451ccb27ba182 Mon Sep 17 00:00:00 2001
+From af5c0c1dbc73b9553916dbdc12e69cfe11ef7d88 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Sat, 11 Nov 2017 21:45:31 +0000
 Subject: [PATCH 124/125] nvme: decrease msleep
@@ -8,10 +8,10 @@ Subject: [PATCH 124/125] nvme: decrease msleep
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/nvme/host/core.c b/drivers/nvme/host/core.c
-index b9ca782fe82d..4780578fdefa 100644
+index bf65501e6ed6..7fdd8ccb6757 100644
 --- a/drivers/nvme/host/core.c
 +++ b/drivers/nvme/host/core.c
-@@ -1673,7 +1673,7 @@ static int nvme_wait_ready(struct nvme_ctrl *ctrl, u64 cap, bool enabled)
+@@ -1713,7 +1713,7 @@ static int nvme_wait_ready(struct nvme_ctrl *ctrl, u64 cap, bool enabled)
  		if ((csts & NVME_CSTS_RDY) == bit)
  			break;
  

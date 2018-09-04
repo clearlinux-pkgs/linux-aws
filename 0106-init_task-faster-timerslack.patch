@@ -1,4 +1,4 @@
-From 32a756be4770932b0d3208aa21e3b35f95c1a903 Mon Sep 17 00:00:00 2001
+From 6204b911f7c590ed1801167fa9f4e10cb9b921e7 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Wed, 23 Mar 2016 14:52:41 +0000
 Subject: [PATCH 106/125] init_task: faster timerslack
@@ -17,10 +17,10 @@ for where the patch goes work out better here
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/init/init_task.c b/init/init_task.c
-index 3ac6e754cf64..e72baeca8ad4 100644
+index 74f60baa2799..1d4a078e2b8a 100644
 --- a/init/init_task.c
 +++ b/init/init_task.c
-@@ -109,7 +109,7 @@ struct task_struct init_task
+@@ -110,7 +110,7 @@ struct task_struct init_task
  	.journal_info	= NULL,
  	INIT_CPU_TIMERS(init_task)
  	.pi_lock	= __RAW_SPIN_LOCK_UNLOCKED(init_task.pi_lock),

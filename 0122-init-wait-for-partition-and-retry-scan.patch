@@ -1,4 +1,4 @@
-From 702dc069182a9d0e994e7b73b005f471facf0a83 Mon Sep 17 00:00:00 2001
+From 9fee2e16515bddcbbb8c972514256bf98ce64c91 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Wed, 17 May 2017 01:52:11 +0000
 Subject: [PATCH 122/125] init: wait for partition and retry scan

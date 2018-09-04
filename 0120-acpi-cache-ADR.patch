@@ -1,4 +1,4 @@
-From 1dc054ae0550c5aca5e338e68fafa4f94deaa30a Mon Sep 17 00:00:00 2001
+From d555a65a3429417c14b15aa894b3bbf5438b0595 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Sun, 14 May 2017 23:53:08 +0000
 Subject: [PATCH 120/125] acpi: cache ADR

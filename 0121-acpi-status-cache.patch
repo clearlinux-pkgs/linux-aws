@@ -1,4 +1,4 @@
-From dcd24b825de26fb81dbfde777826b4ec87c4b538 Mon Sep 17 00:00:00 2001
+From bf96849e4e8323701daa8477ef11d83ff7a5a528 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Sun, 14 May 2017 23:53:08 +0000
 Subject: [PATCH 121/125] acpi: status cache

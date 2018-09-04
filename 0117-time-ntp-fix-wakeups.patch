@@ -1,4 +1,4 @@
-From acbf0d17bff2e0bd186f810ee46c4e9b382fc0f5 Mon Sep 17 00:00:00 2001
+From ca3c4338defc2e8f16bc753fef86e9a27afb4b9f Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Sun, 30 Apr 2017 23:52:49 +0000
 Subject: [PATCH 117/125] time: ntp: fix wakeups

@@ -1,4 +1,4 @@
-From 4246f969927dca8419da3cdc2d6224dd36e762a5 Mon Sep 17 00:00:00 2001
+From 14739f976efeabc3158e4f2b6c1a3cb2fb83ff14 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Mon, 1 May 2017 03:37:38 +0000
 Subject: [PATCH 119/125] config: no Atom
@@ -8,7 +8,7 @@ Subject: [PATCH 119/125] config: no Atom
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/platform/x86/Kconfig b/drivers/platform/x86/Kconfig
-index 566644bb496a..210f7cf6c7d7 100644
+index ac4d48830415..0a51e7b3d281 100644
 --- a/drivers/platform/x86/Kconfig
 +++ b/drivers/platform/x86/Kconfig
 @@ -1221,6 +1221,6 @@ config INTEL_CHTDC_TI_PWRBTN

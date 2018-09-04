@@ -1,4 +1,4 @@
-From c71682f637288a2aa9f6143e8ffe173476c90509 Mon Sep 17 00:00:00 2001
+From 3f2b881f696c44b0f404d7c9f193783ea76eb508 Mon Sep 17 00:00:00 2001
 From: jplozi <jplozi@unice.fr>
 Date: Fri, 11 Mar 2016 15:18:06 +0100
 Subject: [PATCH 107/125] overload on wakeup
@@ -14,10 +14,10 @@ a more permanent/elegant solution.
  1 file changed, 14 insertions(+)
 
 diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-index 79f574dba096..30543efccf29 100644
+index 9c219f7b0970..a1fc839bb286 100644
 --- a/kernel/sched/fair.c
 +++ b/kernel/sched/fair.c
-@@ -6571,6 +6571,20 @@ select_task_rq_fair(struct task_struct *p, int prev_cpu, int sd_flag, int wake_f
+@@ -6626,6 +6626,20 @@ select_task_rq_fair(struct task_struct *p, int prev_cpu, int sd_flag, int wake_f
  	}
  
  	rcu_read_lock();

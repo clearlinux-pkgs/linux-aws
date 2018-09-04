@@ -1,14 +1,14 @@
-From 16bb4925f2e4c50e932cd3a178a8587865f91ac5 Mon Sep 17 00:00:00 2001
+From 440d0c7d312c9b41f5e23363f633016cc83bd030 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Sat, 11 Nov 2017 21:45:31 +0000
-Subject: [PATCH 123/125] ena: asnync
+Subject: [PATCH] ena: async
 
 ---
  drivers/net/ethernet/amazon/ena/ena_netdev.c | 11 ++++++++++-
  1 file changed, 10 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/net/ethernet/amazon/ena/ena_netdev.c b/drivers/net/ethernet/amazon/ena/ena_netdev.c
-index a822e70c2af3..2e48fdcc9653 100644
+index f2af87d70594..ba3137029e8d 100644
 --- a/drivers/net/ethernet/amazon/ena/ena_netdev.c
 +++ b/drivers/net/ethernet/amazon/ena/ena_netdev.c
 @@ -35,6 +35,7 @@
@@ -19,8 +19,8 @@ index a822e70c2af3..2e48fdcc9653 100644
  #include <linux/ethtool.h>
  #include <linux/if_vlan.h>
  #include <linux/kernel.h>
-@@ -3529,6 +3530,13 @@ static struct pci_driver ena_pci_driver = {
- 	.sriov_configure = ena_sriov_configure,
+@@ -3503,6 +3504,13 @@ static struct pci_driver ena_pci_driver = {
+ 	.sriov_configure = pci_sriov_configure_simple,
  };
  
 +ASYNC_DOMAIN_EXCLUSIVE(ena_domain);
@@ -33,7 +33,7 @@ index a822e70c2af3..2e48fdcc9653 100644
  static int __init ena_init(void)
  {
  	pr_info("%s", version);
-@@ -3539,7 +3547,8 @@ static int __init ena_init(void)
+@@ -3513,7 +3521,8 @@ static int __init ena_init(void)
  		return -ENOMEM;
  	}
  
