@@ -4,13 +4,13 @@
 #
 
 Name:           linux-aws
-Version:        4.18.5
-Release:        70
+Version:        4.18.6
+Release:        71
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.18.5.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.18.6.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -82,7 +82,7 @@ Group:          kernel
 Linux kernel extra files
 
 %prep
-%setup -q -n linux-4.18.5
+%setup -q -n linux-4.18.6
 
 #     000X  cve, bugfixes patches
 
