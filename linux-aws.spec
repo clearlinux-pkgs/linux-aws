@@ -1,26 +1,26 @@
 #
-# note to self: Linus releases need to be named 4.x.0 not 4.x or various
-# things break
+# This is a special configuration of the Linux kernel, based on linux package
+# for AWS support
 #
 
 Name:           linux-aws
-Version:        4.18.16
+Version:        4.20.6
 Release:        81
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.18.16.tar.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.20.6.tar.xz
 Source1:        config
 Source2:        cmdline
 
-%define kversion %{version}-%{release}.aws
+%define ktarget  aws
+%define kversion %{version}-%{release}.%{ktarget}
 
 BuildRequires:  buildreq-kernel
 
 Requires: systemd-bin
 Requires: init-rdahead
-
 
 # don't strip .ko files!
 %global __os_install_post %{nil}
@@ -28,10 +28,12 @@ Requires: init-rdahead
 %define __strip /bin/true
 
 #    000X: cve, bugfixes patches
+Patch0001: CVE-2019-3819.patch
+Patch0002: CVE-2018-16880.patch
 
 #    00XY: Mainline patches, upstream backports
 
-# Series   01XX: Clear Linux patches
+#Serie.clr 01XX: Clear Linux patches
 Patch0101: 0101-i8042-decrease-debug-message-level-to-info.patch
 Patch0102: 0102-Increase-the-ext4-default-commit-age.patch
 Patch0103: 0103-pci-pme-wakeups.patch
@@ -56,7 +58,18 @@ Patch0121: 0121-acpi-status-cache.patch
 Patch0122: 0122-init-wait-for-partition-and-retry-scan.patch
 Patch0123: 0123-ena-async.patch
 Patch0124: 0124-nvme-decrease-msleep.patch
-Patch0125: 0125-zero-extra-registers.patch
+Patch0125: 0125-Migrate-some-systemd-defaults-to-the-kernel-defaults.patch
+Patch0126: 0126-use-lfence-instead-of-rep-and-nop.patch
+Patch0127: 0127-do-accept-in-LIFO-order-for-cache-efficiency.patch
+Patch0128: 0128-zero-extra-registers.patch
+Patch0129: 0129-locking-rwsem-spin-faster.patch
+#Serie.clr.end
+
+#Serie1.name WireGuard
+#Serie1.git  https://git.zx2c4.com/WireGuard
+#Serie1.tag  00bf4f8c8c0ec006633a48fd9ee746b30bb9df17
+Patch1001: 1001-WireGuard-fast-modern-secure-kernel-VPN-tunnel.patch
+#Serie1.end
 
 %description
 The Linux kernel.
@@ -70,9 +83,11 @@ Group:          kernel
 Linux kernel extra files
 
 %prep
-%setup -q -n linux-4.18.16
+%setup -q -n linux-4.20.6
 
 #     000X  cve, bugfixes patches
+%patch0001 -p1
+%patch0002 -p1
 
 #     00XY  Mainline patches, upstream backports
 
@@ -102,76 +117,77 @@ Linux kernel extra files
 %patch0123 -p1
 %patch0124 -p1
 %patch0125 -p1
+%patch0126 -p1
+%patch0127 -p1
+%patch0128 -p1
+%patch0129 -p1
+
+#Serie1.patch.start
+%patch1001 -p1
+#Serie1.patch.end
 
 cp %{SOURCE1} .
 
 %build
 BuildKernel() {
-    MakeTarget=$1
 
+    Target=$1
     Arch=x86_64
-    ExtraVer="-%{release}.aws"
+    ExtraVer="-%{release}.${Target}"
 
     perl -p -i -e "s/^EXTRAVERSION.*/EXTRAVERSION = ${ExtraVer}/" Makefile
 
-    make -s mrproper
-    cp config .config
+    make O=${Target} -s mrproper
+    cp config ${Target}/.config
 
-    make -s ARCH=$Arch olddefconfig 
-    make -s CONFIG_DEBUG_SECTION_MISMATCH=y %{?_smp_mflags} ARCH=$Arch %{?sparse_mflags}
+    make O=${Target} -s ARCH=${Arch} olddefconfig
+    make O=${Target} -s ARCH=${Arch} CONFIG_DEBUG_SECTION_MISMATCH=y %{?_smp_mflags} %{?sparse_mflags}
 }
 
-BuildKernel bzImage
+BuildKernel %{ktarget}
 
 %install
 
 InstallKernel() {
-    KernelImage=$1
 
+    Target=$1
+    Kversion=$2
     Arch=x86_64
-    KernelVer=%{kversion}
     KernelDir=%{buildroot}/usr/lib/kernel
 
     mkdir   -p ${KernelDir}
-    install -m 644 .config    ${KernelDir}/config-${KernelVer}
-    install -m 644 System.map ${KernelDir}/System.map-${KernelVer}
-    install -m 644 %{SOURCE2} ${KernelDir}/cmdline-${KernelVer}
-    cp  $KernelImage ${KernelDir}/org.clearlinux.aws.%{version}-%{release}
-    chmod 755 ${KernelDir}/org.clearlinux.aws.%{version}-%{release}
+    install -m 644 ${Target}/.config    ${KernelDir}/config-${Kversion}
+    install -m 644 ${Target}/System.map ${KernelDir}/System.map-${Kversion}
+    install -m 644 ${Target}/vmlinux    ${KernelDir}/vmlinux-${Kversion}
+    install -m 644 %{SOURCE2}           ${KernelDir}/cmdline-${Kversion}
+    cp  ${Target}/arch/x86/boot/bzImage ${KernelDir}/org.clearlinux.${Target}.%{version}-%{release}
+    chmod 755 ${KernelDir}/org.clearlinux.${Target}.%{version}-%{release}
 
-    mkdir -p %{buildroot}/usr/lib/modules/$KernelVer
-    make -s ARCH=$Arch INSTALL_MOD_PATH=%{buildroot}/usr modules_install KERNELRELEASE=$KernelVer
+    mkdir -p %{buildroot}/usr/lib/modules
+    make O=${Target} -s ARCH=${Arch} INSTALL_MOD_PATH=%{buildroot}/usr modules_install
 
-    rm -f %{buildroot}/usr/lib/modules/$KernelVer/build
-    rm -f %{buildroot}/usr/lib/modules/$KernelVer/source
+    rm -f %{buildroot}/usr/lib/modules/${Kversion}/build
+    rm -f %{buildroot}/usr/lib/modules/${Kversion}/source
 
-    # Erase some modules index
-    for i in alias ccwmap dep ieee1394map inputmap isapnpmap ofmap pcimap seriomap symbols usbmap softdep devname
-    do
-        rm -f %{buildroot}/usr/lib/modules/${KernelVer}/modules.${i}*
-    done
-    rm -f %{buildroot}/usr/lib/modules/${KernelVer}/modules.*.bin
+    # Kernel default target link
+    ln -s org.clearlinux.${Target}.%{version}-%{release} %{buildroot}/usr/lib/kernel/default-${Target}
 }
 
-InstallKernel arch/x86/boot/bzImage
+InstallKernel %{ktarget} %{kversion}
 
 rm -rf %{buildroot}/usr/lib/firmware
-
-# Recreate modules indices
-depmod -a -b %{buildroot}/usr %{kversion}
-
-ln -s org.clearlinux.aws.%{version}-%{release} %{buildroot}/usr/lib/kernel/default-aws
 
 %files
 %dir /usr/lib/kernel
 %dir /usr/lib/modules/%{kversion}
 /usr/lib/kernel/config-%{kversion}
 /usr/lib/kernel/cmdline-%{kversion}
-/usr/lib/kernel/org.clearlinux.aws.%{version}-%{release}
-/usr/lib/kernel/default-aws
+/usr/lib/kernel/org.clearlinux.%{ktarget}.%{version}-%{release}
+/usr/lib/kernel/default-%{ktarget}
 /usr/lib/modules/%{kversion}/kernel
 /usr/lib/modules/%{kversion}/modules.*
 
 %files extra
 %dir /usr/lib/kernel
 /usr/lib/kernel/System.map-%{kversion}
+/usr/lib/kernel/vmlinux-%{kversion}
