@@ -1,7 +1,7 @@
-From 4a9a8b0b305c89ecdba5349805180501dfdbc10f Mon Sep 17 00:00:00 2001
+From cc7bb3887c988c1a83089a319e964cf83ea2672a Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Sun, 7 May 2017 00:34:01 +0000
-Subject: [PATCH 115/125] xen: xenbus: don't be slow
+Subject: [PATCH 115/129] xen: xenbus: don't be slow
 
 ---
  drivers/xen/xenbus/xenbus_probe_frontend.c | 9 +++++++--
@@ -44,5 +44,5 @@ index 07896f4b2736..f35635a75063 100644
  	return false;
  }
 -- 
-2.18.0
+2.20.1
 

@@ -1,17 +1,17 @@
-From 14739f976efeabc3158e4f2b6c1a3cb2fb83ff14 Mon Sep 17 00:00:00 2001
+From 05cbfdf35485a3664e1f45fe0bc595a232a9671d Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Mon, 1 May 2017 03:37:38 +0000
-Subject: [PATCH 119/125] config: no Atom
+Subject: [PATCH 119/129] config: no Atom
 
 ---
  drivers/platform/x86/Kconfig | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/platform/x86/Kconfig b/drivers/platform/x86/Kconfig
-index ac4d48830415..0a51e7b3d281 100644
+index 54f6a40c75c6..cee4c028dcaa 100644
 --- a/drivers/platform/x86/Kconfig
 +++ b/drivers/platform/x86/Kconfig
-@@ -1221,6 +1221,6 @@ config INTEL_CHTDC_TI_PWRBTN
+@@ -1291,6 +1291,6 @@ config INTEL_ATOMISP2_PM
  endif # X86_PLATFORM_DEVICES
  
  config PMC_ATOM
@@ -20,5 +20,5 @@ index ac4d48830415..0a51e7b3d281 100644
         depends on PCI
         select COMMON_CLK
 -- 
-2.18.0
+2.20.1
 

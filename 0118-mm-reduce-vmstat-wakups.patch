@@ -1,17 +1,17 @@
-From b0e68b7115e7baf817a07d4839ee8f5125c9085a Mon Sep 17 00:00:00 2001
+From 8d1bc01ec6940f341b5eafab4963918ba6fd712b Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Mon, 1 May 2017 01:00:51 +0000
-Subject: [PATCH 118/125] mm: reduce vmstat wakups
+Subject: [PATCH 118/129] mm: reduce vmstat wakups
 
 ---
  mm/vmstat.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/mm/vmstat.c b/mm/vmstat.c
-index 8ba0870ecddd..0c32523cbbe7 100644
+index 9c624595e904..c24f1b3840f3 100644
 --- a/mm/vmstat.c
 +++ b/mm/vmstat.c
-@@ -1730,7 +1730,7 @@ static const struct seq_operations vmstat_op = {
+@@ -1732,7 +1732,7 @@ static const struct seq_operations vmstat_op = {
  
  #ifdef CONFIG_SMP
  static DEFINE_PER_CPU(struct delayed_work, vmstat_work);
@@ -21,5 +21,5 @@ index 8ba0870ecddd..0c32523cbbe7 100644
  #ifdef CONFIG_PROC_FS
  static void refresh_vm_stats(struct work_struct *work)
 -- 
-2.18.0
+2.20.1
 
