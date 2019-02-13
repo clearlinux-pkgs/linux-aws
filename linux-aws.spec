@@ -5,7 +5,7 @@
 
 Name:           linux-aws
 Version:        4.20.8
-Release:        86
+Release:        87
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
@@ -28,8 +28,7 @@ Requires: init-rdahead
 %define __strip /bin/true
 
 #    000X: cve, bugfixes patches
-Patch0001: CVE-2019-3819.patch
-Patch0002: 0002-vhost-vsock-fix-vhost-vsock-cid-hashing-inconsistent.patch
+Patch0001: 0002-vhost-vsock-fix-vhost-vsock-cid-hashing-inconsistent.patch
 
 #    00XY: Mainline patches, upstream backports
 
@@ -87,7 +86,6 @@ Linux kernel extra files
 
 #     000X  cve, bugfixes patches
 %patch0001 -p1
-%patch0002 -p1
 
 #     00XY  Mainline patches, upstream backports
 
