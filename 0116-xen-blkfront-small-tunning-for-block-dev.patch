@@ -1,7 +1,7 @@
-From 22208ff4b5d9eb9b65606d9c9d5076e4fe2d06c0 Mon Sep 17 00:00:00 2001
+From 6733ecf1ad13da979ad4b3f7c8ba348ebc3f4d6c Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Sun, 7 May 2017 00:34:01 +0000
-Subject: [PATCH 116/129] xen: blkfront: small tunning for block dev
+Subject: [PATCH] xen: blkfront: small tunning for block dev
 
 Follow the AWS EBS tuning guide for Xen-blkfront
 ---

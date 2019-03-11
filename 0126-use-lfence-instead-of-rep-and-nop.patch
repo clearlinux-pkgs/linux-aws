@@ -1,14 +1,14 @@
-From 53483a249127f2067e7676154bd1c7e2e8442b7d Mon Sep 17 00:00:00 2001
+From 8602573b7fa71c3fd7d1caa318b46a30cbb27155 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Sat, 8 Dec 2018 18:21:32 +0000
-Subject: [PATCH 126/129] use lfence instead of rep and nop
+Subject: [PATCH] use lfence instead of rep and nop
 
 ---
  arch/x86/include/asm/processor.h | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/arch/x86/include/asm/processor.h b/arch/x86/include/asm/processor.h
-index 071b2a6fff85..9c58ca90c09d 100644
+index 33051436c864..e916181ae5d5 100644
 --- a/arch/x86/include/asm/processor.h
 +++ b/arch/x86/include/asm/processor.h
 @@ -657,7 +657,7 @@ static inline unsigned int cpuid_edx(unsigned int op)

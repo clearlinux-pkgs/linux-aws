@@ -1,7 +1,7 @@
-From 27654cc0cacfebce605b0bb80912ecb1dd05adf7 Mon Sep 17 00:00:00 2001
+From 79813e9251cea6e5f24d8e2adf71fe3aba4c584e Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Sun, 14 May 2017 23:53:08 +0000
-Subject: [PATCH 120/129] acpi: cache ADR
+Subject: [PATCH] acpi: cache ADR
 
 ---
  drivers/acpi/acpica/aclocal.h |  1 +

@@ -1,7 +1,7 @@
-From 2394318d6425758ebb628d2b41cf8fe518312e54 Mon Sep 17 00:00:00 2001
+From 3cbcd2881482fa409902d2b9c0e610f304d94cdb Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Sun, 14 May 2017 23:53:08 +0000
-Subject: [PATCH 121/129] acpi: status cache
+Subject: [PATCH] acpi: status cache
 
 ---
  drivers/acpi/scan.c     | 3 ++-
@@ -9,10 +9,10 @@ Subject: [PATCH 121/129] acpi: status cache
  2 files changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
-index bd1c59fb0e17..014614d3b9cc 100644
+index 5efd4219f112..295b1a8d162f 100644
 --- a/drivers/acpi/scan.c
 +++ b/drivers/acpi/scan.c
-@@ -1955,7 +1955,8 @@ static void acpi_bus_attach(struct acpi_device *device)
+@@ -1961,7 +1961,8 @@ static void acpi_bus_attach(struct acpi_device *device)
  	if (ACPI_SUCCESS(acpi_bus_get_ejd(device->handle, &ejd)))
  		register_dock_dependent_device(device, ejd);
  

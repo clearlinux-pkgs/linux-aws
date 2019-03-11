@@ -1,7 +1,7 @@
-From 2b7493c26cd037c1e45e9a5f7bcde2ed7353a220 Mon Sep 17 00:00:00 2001
+From a51752574a978c0da17c429889a42102ffbb202a Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Wed, 23 Mar 2016 14:52:41 +0000
-Subject: [PATCH 106/129] init_task: faster timerslack
+Subject: [PATCH] init_task: faster timerslack
 
 the default tuning is a compromise between client power and server
 performance;

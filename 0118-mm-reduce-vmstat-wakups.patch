@@ -1,14 +1,14 @@
-From 8d1bc01ec6940f341b5eafab4963918ba6fd712b Mon Sep 17 00:00:00 2001
+From df70324253c95ab983b92681bfe2fa3abdc547be Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Mon, 1 May 2017 01:00:51 +0000
-Subject: [PATCH 118/129] mm: reduce vmstat wakups
+Subject: [PATCH] mm: reduce vmstat wakups
 
 ---
  mm/vmstat.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/mm/vmstat.c b/mm/vmstat.c
-index 9c624595e904..c24f1b3840f3 100644
+index 83b30edc2f7f..bd79aa5b9a4a 100644
 --- a/mm/vmstat.c
 +++ b/mm/vmstat.c
 @@ -1732,7 +1732,7 @@ static const struct seq_operations vmstat_op = {
