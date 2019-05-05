@@ -30,7 +30,6 @@ Requires: %{name}-license = %{version}-%{release}
 
 #    000X: cve, bugfixes patches
 Patch0001: CVE-2019-9500.patch
-Patch0002: CVE-2019-11683.patch
 
 #    00XY: Mainline patches, upstream backports
 
@@ -97,7 +96,6 @@ license components for the linux package.
 
 #     000X  cve, bugfixes patches
 %patch0001 -p1
-%patch0002 -p1
 
 #     00XY  Mainline patches, upstream backports
 
