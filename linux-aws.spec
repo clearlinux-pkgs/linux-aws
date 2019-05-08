@@ -4,13 +4,13 @@
 #
 
 Name:           linux-aws
-Version:        5.0.13
-Release:        117
+Version:        5.0.14
+Release:        118
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.0.13.tar.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.0.14.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -92,7 +92,7 @@ Group: Default
 license components for the linux package.
 
 %prep
-%setup -q -n linux-5.0.13
+%setup -q -n linux-5.0.14
 
 #     000X  cve, bugfixes patches
 %patch0001 -p1
