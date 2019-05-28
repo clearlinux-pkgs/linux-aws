@@ -21,18 +21,18 @@ BuildRequires:  buildreq-kernel
 
 Requires: systemd-bin
 Requires: init-rdahead
-Requires: %{name}-license = %{version}-%{release}
+Requires: linux-aws-license = %{version}-%{release}
 
 # don't strip .ko files!
 %global __os_install_post %{nil}
 %define debug_package %{nil}
 %define __strip /bin/true
 
-#    000X: cve, bugfixes patches
-Patch0001: CVE-2019-9500.patch
-Patch0002: CVE-2019-9503.patch
+#cve.start cve patches from 0001 to 009
+#cve.end
 
-#    00XY: Mainline patches, upstream backports
+#mainline: Mainline patches, upstream backport and fixes from 0010 to 0099
+#mainline.end
 
 #Serie.clr 01XX: Clear Linux patches
 Patch0101: 0101-i8042-decrease-debug-message-level-to-info.patch
@@ -64,7 +64,7 @@ Patch0126: 0126-use-lfence-instead-of-rep-and-nop.patch
 Patch0127: 0127-do-accept-in-LIFO-order-for-cache-efficiency.patch
 Patch0128: 0128-zero-extra-registers.patch
 Patch0129: 0129-locking-rwsem-spin-faster.patch
-#Serie.clr.end
+#Serie.end
 
 #Serie1.name WireGuard
 #Serie1.git  https://git.zx2c4.com/WireGuard
@@ -80,7 +80,7 @@ The Linux kernel.
 License:        GPL-2.0
 Summary:        The Linux kernel extra files
 Group:          kernel
-Requires:       %{name}-license = %{version}-%{release}
+Requires:       linux-aws-license = %{version}-%{release}
 
 %description extra
 Linux kernel extra files
@@ -95,13 +95,13 @@ license components for the linux package.
 %prep
 %setup -q -n linux-5.0.18
 
-#     000X  cve, bugfixes patches
-%patch0001 -p1
-%patch0002 -p1
+#cve.patch.start cve patches
+#cve.patch.end
 
-#     00XY  Mainline patches, upstream backports
+#mainline.patch.start Mainline patches, upstream backport and fixes
+#mainline.patch.end
 
-#     01XX  Clear Linux patches
+#Serie.patch.start Clear Linux patches
 %patch0101 -p1
 %patch0102 -p1
 %patch0103 -p1
@@ -131,6 +131,7 @@ license components for the linux package.
 %patch0127 -p1
 %patch0128 -p1
 %patch0129 -p1
+#Serie.patch.end
 
 #Serie1.patch.start
 %patch1001 -p1
