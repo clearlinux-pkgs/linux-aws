@@ -1,4 +1,4 @@
-From d462aa2ea500d4cbdbd3977ddcfd7eb6f6e1e8ab Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Sat, 11 Nov 2017 21:45:31 +0000
 Subject: [PATCH] ena: async
@@ -44,5 +44,5 @@ index a6eacf2099c3..43b2ba91551f 100644
  
  static void __exit ena_cleanup(void)
 -- 
-2.20.1
+https://clearlinux.org
 

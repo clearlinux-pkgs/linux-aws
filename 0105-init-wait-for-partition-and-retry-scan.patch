@@ -1,4 +1,4 @@
-From 8118a826259b3a975ec1912e49cb6070d10414d8 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Wed, 17 May 2017 01:52:11 +0000
 Subject: [PATCH] init: wait for partition and retry scan
@@ -48,5 +48,5 @@ index f8c230c77035..c61d6c28ce73 100644
  	md_run_setup();
  
 -- 
-2.20.1
+https://clearlinux.org
 

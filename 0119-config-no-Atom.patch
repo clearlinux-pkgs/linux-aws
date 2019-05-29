@@ -1,4 +1,4 @@
-From 348041293eda75b6dabb343a2552ec5e13c6a227 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Mon, 1 May 2017 03:37:38 +0000
 Subject: [PATCH] config: no Atom
@@ -8,10 +8,10 @@ Subject: [PATCH] config: no Atom
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/platform/x86/Kconfig b/drivers/platform/x86/Kconfig
-index b5e9db85e881..dfbbd1245572 100644
+index a1ed13183559..17b93e004213 100644
 --- a/drivers/platform/x86/Kconfig
 +++ b/drivers/platform/x86/Kconfig
-@@ -1306,6 +1306,6 @@ config HUAWEI_WMI
+@@ -1320,6 +1320,6 @@ config PCENGINES_APU2
  endif # X86_PLATFORM_DEVICES
  
  config PMC_ATOM
@@ -20,5 +20,5 @@ index b5e9db85e881..dfbbd1245572 100644
         depends on PCI
         select COMMON_CLK
 -- 
-2.20.1
+https://clearlinux.org
 

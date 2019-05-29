@@ -1,4 +1,4 @@
-From 3cbcd2881482fa409902d2b9c0e610f304d94cdb Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Sun, 14 May 2017 23:53:08 +0000
 Subject: [PATCH] acpi: status cache
@@ -9,10 +9,10 @@ Subject: [PATCH] acpi: status cache
  2 files changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
-index 5efd4219f112..295b1a8d162f 100644
+index 446c959a8f08..2f3f6a111a2b 100644
 --- a/drivers/acpi/scan.c
 +++ b/drivers/acpi/scan.c
-@@ -1961,7 +1961,8 @@ static void acpi_bus_attach(struct acpi_device *device)
+@@ -1962,7 +1962,8 @@ static void acpi_bus_attach(struct acpi_device *device)
  	if (ACPI_SUCCESS(acpi_bus_get_ejd(device->handle, &ejd)))
  		register_dock_dependent_device(device, ejd);
  
@@ -43,5 +43,5 @@ index 0300374101cd..63bee1e0a86a 100644
  
  static inline void acpi_set_hp_context(struct acpi_device *adev,
 -- 
-2.20.1
+https://clearlinux.org
 

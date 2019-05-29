@@ -1,4 +1,4 @@
-From 736b7f83effca9570625f42390d9550a6394cfac Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Sat, 10 Dec 2016 14:29:52 +0000
 Subject: [PATCH] e1000e: change default policy
@@ -23,5 +23,5 @@ index 098369fd3e65..7241df587385 100644
  #define MIN_ITR 100
  
 -- 
-2.20.1
+https://clearlinux.org
 

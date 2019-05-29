@@ -1,4 +1,4 @@
-From 19b603fd0374aad8fbd129c1bccb1c983ea1a35f Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Sat, 11 Nov 2017 21:45:31 +0000
 Subject: [PATCH] nvme: decrease msleep
@@ -8,10 +8,10 @@ Subject: [PATCH] nvme: decrease msleep
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/nvme/host/core.c b/drivers/nvme/host/core.c
-index 6a9dd68c0f4f..cd33c9ccb2e6 100644
+index 2c43e12b70af..9a027a1d76bc 100644
 --- a/drivers/nvme/host/core.c
 +++ b/drivers/nvme/host/core.c
-@@ -1813,7 +1813,7 @@ static int nvme_wait_ready(struct nvme_ctrl *ctrl, u64 cap, bool enabled)
+@@ -1855,7 +1855,7 @@ static int nvme_wait_ready(struct nvme_ctrl *ctrl, u64 cap, bool enabled)
  		if ((csts & NVME_CSTS_RDY) == bit)
  			break;
  
@@ -21,5 +21,5 @@ index 6a9dd68c0f4f..cd33c9ccb2e6 100644
  			return -EINTR;
  		if (time_after(jiffies, timeout)) {
 -- 
-2.20.1
+https://clearlinux.org
 

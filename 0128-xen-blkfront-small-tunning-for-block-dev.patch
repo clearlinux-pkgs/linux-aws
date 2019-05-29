@@ -1,4 +1,4 @@
-From 6733ecf1ad13da979ad4b3f7c8ba348ebc3f4d6c Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Sun, 7 May 2017 00:34:01 +0000
 Subject: [PATCH] xen: blkfront: small tunning for block dev
@@ -9,7 +9,7 @@ Follow the AWS EBS tuning guide for Xen-blkfront
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/block/xen-blkfront.c b/drivers/block/xen-blkfront.c
-index 0ed4b200fa58..9fc1563c9623 100644
+index d43a5677ccbc..fd0f4f2c8931 100644
 --- a/drivers/block/xen-blkfront.c
 +++ b/drivers/block/xen-blkfront.c
 @@ -131,12 +131,12 @@ static LIST_HEAD(info_list);
@@ -28,5 +28,5 @@ index 0ed4b200fa58..9fc1563c9623 100644
  MODULE_PARM_DESC(max_queues, "Maximum number of hardware queues/rings used per virtual disk");
  
 -- 
-2.20.1
+https://clearlinux.org
 

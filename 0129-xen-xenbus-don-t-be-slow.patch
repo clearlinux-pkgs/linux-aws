@@ -1,4 +1,4 @@
-From 54bcce4a616d6b0383a4cda955327b27aab6f136 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Sun, 7 May 2017 00:34:01 +0000
 Subject: [PATCH] xen: xenbus: don't be slow
@@ -44,5 +44,5 @@ index 07896f4b2736..f35635a75063 100644
  	return false;
  }
 -- 
-2.20.1
+https://clearlinux.org
 
