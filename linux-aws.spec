@@ -4,13 +4,13 @@
 #
 
 Name:           linux-aws
-Version:        5.0.18
-Release:        123
+Version:        5.1.5
+Release:        124
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.0.18.tar.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.1.5.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -35,35 +35,35 @@ Requires: linux-aws-license = %{version}-%{release}
 #mainline.end
 
 #Serie.clr 01XX: Clear Linux patches
-Patch0101: 0101-i8042-decrease-debug-message-level-to-info.patch
-Patch0102: 0102-Increase-the-ext4-default-commit-age.patch
-Patch0103: 0103-pci-pme-wakeups.patch
-Patch0104: 0104-ksm-wakeups.patch
-Patch0105: 0105-xattr-allow-setting-user.-attributes-on-symlinks-by-.patch
-Patch0106: 0106-init_task-faster-timerslack.patch
-Patch0107: 0107-overload-on-wakeup.patch
-Patch0108: 0108-smpboot-reuse-timer-calibration.patch
-Patch0109: 0109-raid6-add-Kconfig-option-to-skip-raid6-benchmarking.patch
-Patch0110: 0110-reduce-e1000e-boot-time-by-tightening-sleep-ranges.patch
-Patch0111: 0111-give-rdrand-some-credit.patch
-Patch0112: 0112-e1000e-change-default-policy.patch
-Patch0113: 0113-ipv4-tcp-tuning-memory.patch
-Patch0114: 0114-tweak-perfbias.patch
-Patch0115: 0115-xen-xenbus-don-t-be-slow.patch
-Patch0116: 0116-xen-blkfront-small-tunning-for-block-dev.patch
-Patch0117: 0117-time-ntp-fix-wakeups.patch
-Patch0118: 0118-mm-reduce-vmstat-wakups.patch
+Patch0101: 0101-do-accept-in-LIFO-order-for-cache-efficiency.patch
+Patch0102: 0102-give-rdrand-some-credit.patch
+Patch0103: 0103-i8042-decrease-debug-message-level-to-info.patch
+Patch0104: 0104-Increase-the-ext4-default-commit-age.patch
+Patch0105: 0105-init-wait-for-partition-and-retry-scan.patch
+Patch0106: 0106-ksm-wakeups.patch
+Patch0107: 0107-locking-rwsem-spin-faster.patch
+Patch0108: 0108-Migrate-some-systemd-defaults-to-the-kernel-defaults.patch
+Patch0109: 0109-pci-pme-wakeups.patch
+Patch0110: 0110-raid6-add-Kconfig-option-to-skip-raid6-benchmarking.patch
+Patch0111: 0111-reduce-e1000e-boot-time-by-tightening-sleep-ranges.patch
+Patch0112: 0112-smpboot-reuse-timer-calibration.patch
+Patch0113: 0113-tweak-perfbias.patch
+Patch0114: 0114-use-lfence-instead-of-rep-and-nop.patch
+Patch0115: 0115-xattr-allow-setting-user.-attributes-on-symlinks-by-.patch
+Patch0116: 0116-zero-extra-registers.patch
+Patch0117: 0117-acpi-cache-ADR.patch
+Patch0118: 0118-acpi-status-cache.patch
 Patch0119: 0119-config-no-Atom.patch
-Patch0120: 0120-acpi-cache-ADR.patch
-Patch0121: 0121-acpi-status-cache.patch
-Patch0122: 0122-init-wait-for-partition-and-retry-scan.patch
-Patch0123: 0123-ena-async.patch
-Patch0124: 0124-nvme-decrease-msleep.patch
-Patch0125: 0125-Migrate-some-systemd-defaults-to-the-kernel-defaults.patch
-Patch0126: 0126-use-lfence-instead-of-rep-and-nop.patch
-Patch0127: 0127-do-accept-in-LIFO-order-for-cache-efficiency.patch
-Patch0128: 0128-zero-extra-registers.patch
-Patch0129: 0129-locking-rwsem-spin-faster.patch
+Patch0120: 0120-e1000e-change-default-policy.patch
+Patch0121: 0121-ena-async.patch
+Patch0122: 0122-init_task-faster-timerslack.patch
+Patch0123: 0123-ipv4-tcp-tuning-memory.patch
+Patch0124: 0124-mm-reduce-vmstat-wakups.patch
+Patch0125: 0125-nvme-decrease-msleep.patch
+Patch0126: 0126-overload-on-wakeup.patch
+Patch0127: 0127-time-ntp-fix-wakeups.patch
+Patch0128: 0128-xen-blkfront-small-tunning-for-block-dev.patch
+Patch0129: 0129-xen-xenbus-don-t-be-slow.patch
 #Serie.end
 
 #Serie1.name WireGuard
@@ -93,7 +93,7 @@ Group: Default
 license components for the linux package.
 
 %prep
-%setup -q -n linux-5.0.18
+%setup -q -n linux-5.1.5
 
 #cve.patch.start cve patches
 #cve.patch.end
