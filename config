@@ -1,10 +1,10 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86 5.1.5 Kernel Configuration
+# Linux/x86 5.1.7 Kernel Configuration
 #
 
 #
-# Compiler: gcc (Clear Linux OS for Intel Architecture) 9.1.1 20190529 gcc-9-branch@271737
+# Compiler: gcc (Clear Linux OS for Intel Architecture) 9.1.1 20190605 gcc-9-branch@271943
 #
 CONFIG_CC_IS_GCC=y
 CONFIG_GCC_VERSION=90101
@@ -333,7 +333,7 @@ CONFIG_DMI=y
 CONFIG_NR_CPUS_RANGE_BEGIN=2
 CONFIG_NR_CPUS_RANGE_END=512
 CONFIG_NR_CPUS_DEFAULT=64
-CONFIG_NR_CPUS=128
+CONFIG_NR_CPUS=256
 CONFIG_SCHED_SMT=y
 CONFIG_SCHED_MC=y
 CONFIG_SCHED_MC_PRIO=y
