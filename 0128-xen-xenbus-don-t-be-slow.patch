@@ -8,10 +8,10 @@ Subject: [PATCH] xen: xenbus: don't be slow
  1 file changed, 7 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/xen/xenbus/xenbus_probe_frontend.c b/drivers/xen/xenbus/xenbus_probe_frontend.c
-index 07896f4b2736..f35635a75063 100644
+index a7d90a719cea..65713a459540 100644
 --- a/drivers/xen/xenbus/xenbus_probe_frontend.c
 +++ b/drivers/xen/xenbus/xenbus_probe_frontend.c
-@@ -177,6 +177,7 @@ static int is_device_connecting(struct device *dev, void *data, bool ignore_none
+@@ -178,6 +178,7 @@ static int is_device_connecting(struct device *dev, void *data, bool ignore_none
  	struct xenbus_device *xendev = to_xenbus_device(dev);
  	struct device_driver *drv = data;
  	struct xenbus_driver *xendrv;
@@ -19,7 +19,7 @@ index 07896f4b2736..f35635a75063 100644
  
  	/*
  	 * A device with no driver will never connect. We care only about
-@@ -202,9 +203,13 @@ static int is_device_connecting(struct device *dev, void *data, bool ignore_none
+@@ -203,9 +204,13 @@ static int is_device_connecting(struct device *dev, void *data, bool ignore_none
  			return 0;
  	}
  	xendrv = to_xenbus_driver(dev->driver);
@@ -34,7 +34,7 @@ index 07896f4b2736..f35635a75063 100644
  }
  static int essential_device_connecting(struct device *dev, void *data)
  {
-@@ -266,7 +271,7 @@ static bool wait_loop(unsigned long start, unsigned int max_delay,
+@@ -267,7 +272,7 @@ static bool wait_loop(unsigned long start, unsigned int max_delay,
  		}
  	}
  
