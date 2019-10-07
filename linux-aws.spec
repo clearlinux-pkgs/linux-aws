@@ -92,6 +92,17 @@ Group: Default
 %description license
 license components for the linux package.
 
+%package dev
+License:        GPL-2.0
+Summary:        The Linux kernel
+Group:          kernel
+Requires:       linux-aws = %{version}-%{release}
+Requires:       linux-aws-extra = %{version}-%{release}
+Requires:       linux-aws-license = %{version}-%{release}
+
+%description dev
+Linux kernel build files
+
 %prep
 %setup -q -n linux-5.3.5
 
@@ -165,6 +176,7 @@ InstallKernel() {
     Kversion=$2
     Arch=x86_64
     KernelDir=%{buildroot}/usr/lib/kernel
+    DevDir=%{buildroot}/usr/lib/modules/${Kversion}/build
 
     mkdir   -p ${KernelDir}
     install -m 644 ${Target}/.config    ${KernelDir}/config-${Kversion}
@@ -179,6 +191,23 @@ InstallKernel() {
 
     rm -f %{buildroot}/usr/lib/modules/${Kversion}/build
     rm -f %{buildroot}/usr/lib/modules/${Kversion}/source
+
+    mkdir -p ${DevDir}
+    find . -type f -a '(' -name 'Makefile*' -o -name 'Kbuild*' -o -name 'Kconfig*' ')' -exec cp -t ${DevDir} --parents -pr {} +
+    find . -type f -a '(' -name '*.sh' -o -name '*.pl' ')' -exec cp -t ${DevDir} --parents -pr {} +
+    cp -t ${DevDir} -pr ${Target}/{Module.symvers,tools}
+    ln -s ../../../kernel/config-${Kversion} ${DevDir}/.config
+    ln -s ../../../kernel/System.map-${Kversion} ${DevDir}/System.map
+    cp -t ${DevDir} --parents -pr arch/x86/include
+    cp -t ${DevDir}/arch/x86/include -pr ${Target}/arch/x86/include/*
+    cp -t ${DevDir}/include -pr include/*
+    cp -t ${DevDir}/include -pr ${Target}/include/*
+    cp -t ${DevDir} --parents -pr scripts/*
+    cp -t ${DevDir}/scripts -pr ${Target}/scripts/*
+    find  ${DevDir}/scripts -type f -name '*.[cho]' -exec rm -v {} +
+    find  ${DevDir} -type f -name '*.cmd' -exec rm -v {} +
+    # Cleanup any dangling links
+    find ${DevDir} -type l -follow -exec rm -v {} +
 
     # Kernel default target link
     ln -s org.clearlinux.${Target}.%{version}-%{release} %{buildroot}/usr/lib/kernel/default-${Target}
@@ -210,3 +239,7 @@ cp -a LICENSES/* %{buildroot}/usr/share/package-licenses/linux-aws
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/linux-aws
+
+%files dev
+%defattr(-,root,root)
+/usr/lib/modules/%{kversion}/build
