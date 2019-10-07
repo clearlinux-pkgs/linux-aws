@@ -1,1 +1,12 @@
-console=tty0 console=ttyS0,115200n8 quiet init=/usr/bin/initra-aws initcall_debug tsc=reliable no_timer_check noreplace-smp rootfstype=ext4 cryptomgr.notests rcupdate.rcu_expedited=1 rw 
+quiet
+console=tty0
+console=ttyS0,115200n8
+cryptomgr.notests
+init=/usr/bin/initra-aws
+initcall_debug
+no_timer_check
+noreplace-smp
+rcupdate.rcu_expedited=1
+rootfstype=ext4
+tsc=reliable
+rw 
