@@ -5,13 +5,13 @@
 #
 
 Name:           linux-aws
-Version:        5.2.20
+Version:        5.3.5
 Release:        164
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.2.20.tar.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.3.5.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -29,11 +29,8 @@ Requires: linux-aws-license = %{version}-%{release}
 %define debug_package %{nil}
 %define __strip /bin/true
 
-#cve.start cve patches from 0001 to 009
+#cve.start cve patches from 0001 to 050
 Patch0001: CVE-2019-12379.patch
-Patch0002: CVE-2019-12454.patch
-Patch0003: CVE-2019-12455.patch
-Patch0004: CVE-2019-12456.patch
 #cve.end
 
 #mainline: Mainline patches, upstream backport and fixes from 0051 to 0099
@@ -50,24 +47,23 @@ Patch0107: 0107-locking-rwsem-spin-faster.patch
 Patch0108: 0108-Migrate-some-systemd-defaults-to-the-kernel-defaults.patch
 Patch0109: 0109-pci-pme-wakeups.patch
 Patch0110: 0110-raid6-add-Kconfig-option-to-skip-raid6-benchmarking.patch
-Patch0111: 0111-reduce-e1000e-boot-time-by-tightening-sleep-ranges.patch
-Patch0112: 0112-smpboot-reuse-timer-calibration.patch
-Patch0113: 0113-use-lfence-instead-of-rep-and-nop.patch
-Patch0114: 0114-xattr-allow-setting-user.-attributes-on-symlinks-by-.patch
-Patch0115: 0115-zero-extra-registers.patch
-Patch0116: 0116-acpi-cache-ADR.patch
-Patch0117: 0117-acpi-status-cache.patch
-Patch0118: 0118-config-no-Atom.patch
-Patch0119: 0119-e1000e-change-default-policy.patch
-Patch0120: 0120-ena-async.patch
-Patch0121: 0121-init_task-faster-timerslack.patch
-Patch0122: 0122-ipv4-tcp-tuning-memory.patch
-Patch0123: 0123-mm-reduce-vmstat-wakups.patch
-Patch0124: 0124-nvme-decrease-msleep.patch
-Patch0125: 0125-overload-on-wakeup.patch
-Patch0126: 0126-time-ntp-fix-wakeups.patch
-Patch0127: 0127-xen-blkfront-small-tunning-for-block-dev.patch
-Patch0128: 0128-xen-xenbus-don-t-be-slow.patch
+Patch0111: 0111-smpboot-reuse-timer-calibration.patch
+Patch0112: 0112-use-lfence-instead-of-rep-and-nop.patch
+Patch0113: 0113-xattr-allow-setting-user.-attributes-on-symlinks-by-.patch
+Patch0114: 0114-zero-extra-registers.patch
+Patch0115: 0115-acpi-cache-ADR.patch
+Patch0116: 0116-acpi-status-cache.patch
+Patch0117: 0117-config-no-Atom.patch
+Patch0118: 0118-e1000e-change-default-policy.patch
+Patch0119: 0119-ena-async.patch
+Patch0120: 0120-init_task-faster-timerslack.patch
+Patch0121: 0121-ipv4-tcp-tuning-memory.patch
+Patch0122: 0122-mm-reduce-vmstat-wakups.patch
+Patch0123: 0123-nvme-decrease-msleep.patch
+Patch0124: 0124-overload-on-wakeup.patch
+Patch0125: 0125-time-ntp-fix-wakeups.patch
+Patch0126: 0126-xen-blkfront-small-tunning-for-block-dev.patch
+Patch0127: 0127-xen-xenbus-don-t-be-slow.patch
 #Serie.end
 
 #Serie1.name WireGuard
@@ -97,13 +93,10 @@ Group: Default
 license components for the linux package.
 
 %prep
-%setup -q -n linux-5.2.20
+%setup -q -n linux-5.3.5
 
 #cve.patch.start cve patches
 %patch0001 -p1
-%patch0002 -p1
-%patch0003 -p1
-%patch0004 -p1
 #cve.patch.end
 
 #mainline.patch.start Mainline patches, upstream backport and fixes
