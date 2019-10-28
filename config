@@ -1,10 +1,10 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86 5.3.6 Kernel Configuration
+# Linux/x86 5.3.7 Kernel Configuration
 #
 
 #
-# Compiler: gcc (Clear Linux OS for Intel Architecture) 9.2.1 20191017 gcc-9-branch@277087
+# Compiler: gcc (Clear Linux OS for Intel Architecture) 9.2.1 20191028 gcc-9-branch@277521
 #
 CONFIG_CC_IS_GCC=y
 CONFIG_GCC_VERSION=90201
@@ -774,7 +774,7 @@ CONFIG_MODULE_SIG_ALL=y
 CONFIG_MODULE_SIG_SHA512=y
 CONFIG_MODULE_SIG_HASH="sha512"
 # CONFIG_MODULE_COMPRESS is not set
-CONFIG_TRIM_UNUSED_KSYMS=y
+# CONFIG_TRIM_UNUSED_KSYMS is not set
 CONFIG_MODULES_TREE_LOOKUP=y
 CONFIG_BLOCK=y
 CONFIG_BLK_SCSI_REQUEST=y
