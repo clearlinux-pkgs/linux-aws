@@ -6,7 +6,7 @@
 
 Name:           linux-aws
 Version:        5.3.9
-Release:        174
+Release:        175
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
@@ -64,6 +64,7 @@ Patch0124: 0124-overload-on-wakeup.patch
 Patch0125: 0125-time-ntp-fix-wakeups.patch
 Patch0126: 0126-xen-blkfront-small-tunning-for-block-dev.patch
 Patch0127: 0127-xen-xenbus-don-t-be-slow.patch
+Patch0128: 0128-add-workaround-for-binutils-optimization.patch
 #Serie.end
 
 #Serie1.name WireGuard
@@ -141,6 +142,7 @@ Linux kernel build files
 %patch0125 -p1
 %patch0126 -p1
 %patch0127 -p1
+%patch0128 -p1
 #Serie.patch.end
 
 #Serie1.patch.start
