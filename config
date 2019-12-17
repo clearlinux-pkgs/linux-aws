@@ -1,10 +1,10 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86 5.3.10 Kernel Configuration
+# Linux/x86 5.3.14 Kernel Configuration
 #
 
 #
-# Compiler: gcc (Clear Linux OS for Intel Architecture) 9.2.1 20191107 gcc-9-branch@277898
+# Compiler: gcc (Clear Linux OS for Intel Architecture) 9.2.1 20191217 gcc-9-branch@279449
 #
 CONFIG_CC_IS_GCC=y
 CONFIG_GCC_VERSION=90201
@@ -643,6 +643,7 @@ CONFIG_KVM_INTEL=m
 # CONFIG_KVM_AMD is not set
 CONFIG_KVM_MMU_AUDIT=y
 CONFIG_VHOST_NET=y
+CONFIG_VHOST_VSOCK=m
 CONFIG_VHOST=y
 # CONFIG_VHOST_CROSS_ENDIAN_LEGACY is not set
 
@@ -1478,7 +1479,10 @@ CONFIG_NET_SCH_FIFO=y
 CONFIG_DNS_RESOLVER=m
 # CONFIG_BATMAN_ADV is not set
 # CONFIG_OPENVSWITCH is not set
-# CONFIG_VSOCKETS is not set
+CONFIG_VSOCKETS=m
+CONFIG_VSOCKETS_DIAG=m
+CONFIG_VIRTIO_VSOCKETS=m
+CONFIG_VIRTIO_VSOCKETS_COMMON=m
 # CONFIG_NETLINK_DIAG is not set
 CONFIG_MPLS=y
 CONFIG_NET_MPLS_GSO=m
@@ -1992,6 +1996,7 @@ CONFIG_TAP=y
 CONFIG_VETH=m
 CONFIG_VIRTIO_NET=m
 # CONFIG_NLMON is not set
+CONFIG_VSOCKMON=m
 # CONFIG_ARCNET is not set
 
 #
