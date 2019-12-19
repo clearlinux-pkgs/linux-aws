@@ -8,10 +8,10 @@ Subject: [PATCH] nvme: decrease msleep
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/nvme/host/core.c b/drivers/nvme/host/core.c
-index d3d6b7bd6903..0e33b98a7ae0 100644
+index af3212aec..bcc826166 100644
 --- a/drivers/nvme/host/core.c
 +++ b/drivers/nvme/host/core.c
-@@ -1932,7 +1932,7 @@ static int nvme_wait_ready(struct nvme_ctrl *ctrl, u64 cap, bool enabled)
+@@ -2064,7 +2064,7 @@ static int nvme_wait_ready(struct nvme_ctrl *ctrl, u64 cap, bool enabled)
  		if ((csts & NVME_CSTS_RDY) == bit)
  			break;
  

@@ -9,19 +9,19 @@ Subject: [PATCH] acpi: cache ADR
  2 files changed, 15 insertions(+)
 
 diff --git a/drivers/acpi/acpica/aclocal.h b/drivers/acpi/acpica/aclocal.h
-index 13d513b81589..685c7896f1bb 100644
+index 1ea52576f..f76014e7b 100644
 --- a/drivers/acpi/acpica/aclocal.h
 +++ b/drivers/acpi/acpica/aclocal.h
 @@ -140,6 +140,7 @@ struct acpi_namespace_node {
- 	struct acpi_namespace_node *parent;	/* Parent node */
  	struct acpi_namespace_node *child;	/* First child */
  	struct acpi_namespace_node *peer;	/* First peer */
+ 	acpi_owner_id owner_id;	/* Node creator */
 +	u64 cached_ADR;		/* Cached value of the _ADR method */
  
  	/*
  	 * The following fields are used by the ASL compiler and disassembler only
 diff --git a/drivers/acpi/utils.c b/drivers/acpi/utils.c
-index e3974a8f8fd4..dc9474107d71 100644
+index e3974a8f8..dc9474107 100644
 --- a/drivers/acpi/utils.c
 +++ b/drivers/acpi/utils.c
 @@ -17,6 +17,8 @@
