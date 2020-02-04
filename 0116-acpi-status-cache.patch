@@ -9,7 +9,7 @@ Subject: [PATCH] acpi: status cache
  2 files changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
-index aad6be5c0..dbc048b7f 100644
+index 915650b..e6d83fb 100644
 --- a/drivers/acpi/scan.c
 +++ b/drivers/acpi/scan.c
 @@ -1960,7 +1960,8 @@ static void acpi_bus_attach(struct acpi_device *device)
@@ -23,7 +23,7 @@ index aad6be5c0..dbc048b7f 100644
  	if (!acpi_device_is_present(device)) {
  		device->flags.initialized = false;
 diff --git a/include/acpi/acpi_bus.h b/include/acpi/acpi_bus.h
-index 3f6fddeb7..064026b16 100644
+index 3f6fdde..064026b 100644
 --- a/include/acpi/acpi_bus.h
 +++ b/include/acpi/acpi_bus.h
 @@ -357,6 +357,7 @@ struct acpi_device {

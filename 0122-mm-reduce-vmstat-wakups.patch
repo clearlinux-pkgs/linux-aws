@@ -8,7 +8,7 @@ Subject: [PATCH] mm: reduce vmstat wakups
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/mm/vmstat.c b/mm/vmstat.c
-index a8222041b..cb8e82454 100644
+index a822204..cb8e824 100644
 --- a/mm/vmstat.c
 +++ b/mm/vmstat.c
 @@ -1747,7 +1747,7 @@ static const struct seq_operations vmstat_op = {
