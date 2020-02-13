@@ -21,7 +21,7 @@ index 1ea5257..f76014e 100644
  	/*
  	 * The following fields are used by the ASL compiler and disassembler only
 diff --git a/drivers/acpi/utils.c b/drivers/acpi/utils.c
-index e3974a8..dc94741 100644
+index 804ac0d..1456a12 100644
 --- a/drivers/acpi/utils.c
 +++ b/drivers/acpi/utils.c
 @@ -17,6 +17,8 @@
