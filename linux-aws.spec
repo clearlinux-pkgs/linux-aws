@@ -6,7 +6,7 @@
 
 Name:           linux-aws
 Version:        5.5.14
-Release:        214
+Release:        215
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
@@ -66,12 +66,12 @@ Patch0126: 0126-xen-blkfront-small-tunning-for-block-dev.patch
 Patch0127: 0127-xen-xenbus-don-t-be-slow.patch
 #Serie.end
 
-#Serie1.name WireGuard
-#Serie1.git  https://git.zx2c4.com/wireguard-linux-compat
-#Serie1.cmt  7a11a53c5a8cf54d1b4b12e2359d1dc4a2ebd751
-#Serie1.tag  v0.0.20200205
+#Serie100.name WireGuard
+#Serie100.git  https://git.zx2c4.com/wireguard-linux-compat
+#Serie100.cmt  43f57dac7b8305024f83addc533c9eede6509129
+#Serie100.tag  v1.0.20200401
 Patch1001: 1001-WireGuard-fast-modern-secure-kernel-VPN-tunnel.patch
-#Serie1.end
+#Serie100.end
 
 %description
 The Linux kernel.
@@ -143,9 +143,9 @@ Linux kernel build files
 %patch0127 -p1
 #Serie.patch.end
 
-#Serie1.patch.start
+#Serie100.patch.start
 %patch1001 -p1
-#Serie1.patch.end
+#Serie100.patch.end
 
 cp %{SOURCE1} .
 
