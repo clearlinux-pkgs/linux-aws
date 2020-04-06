@@ -66,13 +66,6 @@ Patch0126: 0126-xen-blkfront-small-tunning-for-block-dev.patch
 Patch0127: 0127-xen-xenbus-don-t-be-slow.patch
 #Serie.end
 
-#Serie100.name WireGuard
-#Serie100.git  https://git.zx2c4.com/wireguard-linux-compat
-#Serie100.cmt  43f57dac7b8305024f83addc533c9eede6509129
-#Serie100.tag  v1.0.20200401
-Patch1001: 1001-WireGuard-fast-modern-secure-kernel-VPN-tunnel.patch
-#Serie100.end
-
 %description
 The Linux kernel.
 
@@ -142,10 +135,6 @@ Linux kernel build files
 %patch0126 -p1
 %patch0127 -p1
 #Serie.patch.end
-
-#Serie100.patch.start
-%patch1001 -p1
-#Serie100.patch.end
 
 cp %{SOURCE1} .
 
