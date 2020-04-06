@@ -9,7 +9,7 @@ Subject: [PATCH] acpi: cache ADR
  2 files changed, 15 insertions(+)
 
 diff --git a/drivers/acpi/acpica/aclocal.h b/drivers/acpi/acpica/aclocal.h
-index 1ea5257..f76014e 100644
+index af58cd2dc9d3..148f9942ffb1 100644
 --- a/drivers/acpi/acpica/aclocal.h
 +++ b/drivers/acpi/acpica/aclocal.h
 @@ -140,6 +140,7 @@ struct acpi_namespace_node {
@@ -21,7 +21,7 @@ index 1ea5257..f76014e 100644
  	/*
  	 * The following fields are used by the ASL compiler and disassembler only
 diff --git a/drivers/acpi/utils.c b/drivers/acpi/utils.c
-index 804ac0d..1456a12 100644
+index 804ac0df58ec..1456a1207459 100644
 --- a/drivers/acpi/utils.c
 +++ b/drivers/acpi/utils.c
 @@ -17,6 +17,8 @@
