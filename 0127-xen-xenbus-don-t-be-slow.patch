@@ -8,7 +8,7 @@ Subject: [PATCH] xen: xenbus: don't be slow
  1 file changed, 7 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/xen/xenbus/xenbus_probe_frontend.c b/drivers/xen/xenbus/xenbus_probe_frontend.c
-index 8a1650bbe18f..cd6d6268bb2f 100644
+index 8a1650b..cd6d626 100644
 --- a/drivers/xen/xenbus/xenbus_probe_frontend.c
 +++ b/drivers/xen/xenbus/xenbus_probe_frontend.c
 @@ -200,6 +200,7 @@ static int is_device_connecting(struct device *dev, void *data, bool ignore_none

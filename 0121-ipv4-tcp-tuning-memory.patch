@@ -9,7 +9,7 @@ allow the memory tuning for tcp to go a little bigger than default
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/net/ipv4/tcp.c b/net/ipv4/tcp.c
-index dc77c303e6f7..e59a9f0f9fc4 100644
+index dc77c30..e59a9f0 100644
 --- a/net/ipv4/tcp.c
 +++ b/net/ipv4/tcp.c
 @@ -4014,8 +4014,8 @@ void __init tcp_init(void)

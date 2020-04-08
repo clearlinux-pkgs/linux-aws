@@ -8,7 +8,7 @@ Subject: [PATCH] config: no Atom
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/platform/x86/Kconfig b/drivers/platform/x86/Kconfig
-index 587403c44598..2f266f64373c 100644
+index 587403c..2f266f6 100644
 --- a/drivers/platform/x86/Kconfig
 +++ b/drivers/platform/x86/Kconfig
 @@ -1365,6 +1365,6 @@ config SYSTEM76_ACPI
