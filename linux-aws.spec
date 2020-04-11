@@ -6,7 +6,7 @@
 
 Name:           linux-aws
 Version:        5.6.3
-Release:        220
+Release:        221
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
@@ -30,7 +30,6 @@ Requires: linux-aws-license = %{version}-%{release}
 %define __strip /bin/true
 
 #cve.start cve patches from 0001 to 050
-Patch0001: CVE-2019-12379.patch
 #cve.end
 
 #mainline: Mainline patches, upstream backport and fixes from 0051 to 0099
@@ -100,7 +99,6 @@ Linux kernel build files
 %setup -q -n linux-5.6.3
 
 #cve.patch.start cve patches
-%patch0001 -p1
 #cve.patch.end
 
 #mainline.patch.start Mainline patches, upstream backport and fixes
