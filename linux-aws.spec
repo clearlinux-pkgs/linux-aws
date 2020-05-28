@@ -6,7 +6,7 @@
 
 Name:           linux-aws
 Version:        5.6.15
-Release:        234
+Release:        235
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
