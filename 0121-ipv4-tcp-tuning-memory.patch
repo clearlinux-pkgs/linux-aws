@@ -9,10 +9,10 @@ allow the memory tuning for tcp to go a little bigger than default
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/net/ipv4/tcp.c b/net/ipv4/tcp.c
-index eee1825..47536c5 100644
+index 4f11e68..e1e4692 100644
 --- a/net/ipv4/tcp.c
 +++ b/net/ipv4/tcp.c
-@@ -4053,8 +4053,8 @@ void __init tcp_init(void)
+@@ -4045,8 +4045,8 @@ void __init tcp_init(void)
  	tcp_init_mem();
  	/* Set per-socket limits to no more than 1/128 the pressure threshold */
  	limit = nr_free_buffer_pages() << (PAGE_SHIFT - 7);
