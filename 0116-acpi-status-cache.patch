@@ -9,10 +9,10 @@ Subject: [PATCH] acpi: status cache
  2 files changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
-index 1b255e9..9600912 100644
+index 8777faced..7a029fd00 100644
 --- a/drivers/acpi/scan.c
 +++ b/drivers/acpi/scan.c
-@@ -1970,7 +1970,8 @@ static void acpi_bus_attach(struct acpi_device *device)
+@@ -1969,7 +1969,8 @@ static void acpi_bus_attach(struct acpi_device *device)
  	if (ACPI_SUCCESS(acpi_bus_get_ejd(device->handle, &ejd)))
  		register_dock_dependent_device(device, ejd);
  
@@ -23,10 +23,10 @@ index 1b255e9..9600912 100644
  	if (!acpi_device_is_present(device)) {
  		device->flags.initialized = false;
 diff --git a/include/acpi/acpi_bus.h b/include/acpi/acpi_bus.h
-index a92bea7..faf1eaf 100644
+index 5afb6ceb2..95c41c04b 100644
 --- a/include/acpi/acpi_bus.h
 +++ b/include/acpi/acpi_bus.h
-@@ -357,6 +357,7 @@ struct acpi_device {
+@@ -358,6 +358,7 @@ struct acpi_device {
  	struct list_head wakeup_list;
  	struct list_head del_list;
  	struct acpi_device_status status;
@@ -34,7 +34,7 @@ index a92bea7..faf1eaf 100644
  	struct acpi_device_flags flags;
  	struct acpi_device_pnp pnp;
  	struct acpi_device_power power;
-@@ -450,6 +451,7 @@ static inline void *acpi_driver_data(struct acpi_device *d)
+@@ -451,6 +452,7 @@ static inline void *acpi_driver_data(struct acpi_device *d)
  static inline void acpi_set_device_status(struct acpi_device *adev, u32 sta)
  {
  	*((u32 *)&adev->status) = sta;
