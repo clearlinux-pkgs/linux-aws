@@ -5,13 +5,13 @@
 #
 
 Name:           linux-aws
-Version:        5.7.19
-Release:        256
+Version:        5.8.11
+Release:        257
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.7.19.tar.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.8.11.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -96,7 +96,7 @@ Requires:       linux-aws-license = %{version}-%{release}
 Linux kernel build files
 
 %prep
-%setup -q -n linux-5.7.19
+%setup -q -n linux-5.8.11
 
 #cve.patch.start cve patches
 #cve.patch.end
