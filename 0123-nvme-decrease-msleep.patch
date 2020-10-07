@@ -8,7 +8,7 @@ Subject: [PATCH] nvme: decrease msleep
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/nvme/host/core.c b/drivers/nvme/host/core.c
-index f2556f0..94f667d 100644
+index 69165a8..a74add4 100644
 --- a/drivers/nvme/host/core.c
 +++ b/drivers/nvme/host/core.c
 @@ -2302,7 +2302,7 @@ int nvme_shutdown_ctrl(struct nvme_ctrl *ctrl)
