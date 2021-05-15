@@ -5,13 +5,13 @@
 #
 
 Name:           linux-aws
-Version:        5.8.18
-Release:        265
+Version:        5.12.4
+Release:        266
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.8.18.tar.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.12.4.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -60,9 +60,8 @@ Patch0121: 0121-ipv4-tcp-tuning-memory.patch
 Patch0122: 0122-mm-reduce-vmstat-wakups.patch
 Patch0123: 0123-nvme-decrease-msleep.patch
 Patch0124: 0124-overload-on-wakeup.patch
-Patch0125: 0125-time-ntp-fix-wakeups.patch
-Patch0126: 0126-xen-blkfront-small-tunning-for-block-dev.patch
-Patch0127: 0127-xen-xenbus-don-t-be-slow.patch
+Patch0125: 0125-xen-blkfront-small-tunning-for-block-dev.patch
+Patch0126: 0126-xen-xenbus-don-t-be-slow.patch
 #Serie.end
 
 %description
@@ -96,7 +95,7 @@ Requires:       linux-aws-license = %{version}-%{release}
 Linux kernel build files
 
 %prep
-%setup -q -n linux-5.8.18
+%setup -q -n linux-5.12.4
 
 #cve.patch.start cve patches
 #cve.patch.end
@@ -131,7 +130,6 @@ Linux kernel build files
 %patch0124 -p1
 %patch0125 -p1
 %patch0126 -p1
-%patch0127 -p1
 #Serie.patch.end
 
 cp %{SOURCE1} .
