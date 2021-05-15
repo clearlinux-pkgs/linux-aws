@@ -8,10 +8,10 @@ Subject: [PATCH] ena: async
  1 file changed, 10 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/net/ethernet/amazon/ena/ena_netdev.c b/drivers/net/ethernet/amazon/ena/ena_netdev.c
-index 9f2c697ba0ac..dce2cf720220 100644
+index 102f2c91fdb8..c5ef65e0ce66 100644
 --- a/drivers/net/ethernet/amazon/ena/ena_netdev.c
 +++ b/drivers/net/ethernet/amazon/ena/ena_netdev.c
-@@ -35,6 +35,7 @@
+@@ -8,6 +8,7 @@
  #ifdef CONFIG_RFS_ACCEL
  #include <linux/cpu_rmap.h>
  #endif /* CONFIG_RFS_ACCEL */
@@ -19,7 +19,7 @@ index 9f2c697ba0ac..dce2cf720220 100644
  #include <linux/ethtool.h>
  #include <linux/kernel.h>
  #include <linux/module.h>
-@@ -4475,6 +4476,13 @@ static struct pci_driver ena_pci_driver = {
+@@ -4539,6 +4540,13 @@ static struct pci_driver ena_pci_driver = {
  	.sriov_configure = pci_sriov_configure_simple,
  };
  
@@ -33,7 +33,7 @@ index 9f2c697ba0ac..dce2cf720220 100644
  static int __init ena_init(void)
  {
  	ena_wq = create_singlethread_workqueue(DRV_MODULE_NAME);
-@@ -4483,7 +4491,8 @@ static int __init ena_init(void)
+@@ -4547,7 +4555,8 @@ static int __init ena_init(void)
  		return -ENOMEM;
  	}
  

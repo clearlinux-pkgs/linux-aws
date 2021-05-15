@@ -10,7 +10,7 @@ more HPC/cluster friendly
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/net/ethernet/intel/e1000e/param.c b/drivers/net/ethernet/intel/e1000e/param.c
-index 098369fd3e65..7241df587385 100644
+index ebe121db4307..1a3dc70dfa14 100644
 --- a/drivers/net/ethernet/intel/e1000e/param.c
 +++ b/drivers/net/ethernet/intel/e1000e/param.c
 @@ -82,7 +82,7 @@ E1000_PARAM(RxAbsIntDelay, "Receive Absolute Interrupt Delay");
