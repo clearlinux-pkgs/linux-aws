@@ -9,10 +9,10 @@ Subject: [PATCH] acpi: status cache
  2 files changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
-index 6efe7edd7b1e..2c132efbb87a 100644
+index 345777bf7af9..a8c4e51cd2ac 100644
 --- a/drivers/acpi/scan.c
 +++ b/drivers/acpi/scan.c
-@@ -2092,7 +2092,8 @@ static void acpi_bus_attach(struct acpi_device *device, bool first_pass)
+@@ -2093,7 +2093,8 @@ static void acpi_bus_attach(struct acpi_device *device, bool first_pass)
  	if (ACPI_SUCCESS(acpi_bus_get_ejd(device->handle, &ejd)))
  		register_dock_dependent_device(device, ejd);
  
