@@ -8,10 +8,10 @@ Subject: [PATCH] config: no Atom
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/platform/x86/Kconfig b/drivers/platform/x86/Kconfig
-index 205a096e9cee..b710125896f5 100644
+index 60592fb88e7a..98d07dc3034e 100644
 --- a/drivers/platform/x86/Kconfig
 +++ b/drivers/platform/x86/Kconfig
-@@ -1292,6 +1292,6 @@ config INTEL_TELEMETRY
+@@ -1316,6 +1316,6 @@ config INTEL_TELEMETRY
  endif # X86_PLATFORM_DEVICES
  
  config PMC_ATOM

@@ -9,7 +9,7 @@ Follow the AWS EBS tuning guide for Xen-blkfront
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/block/xen-blkfront.c b/drivers/block/xen-blkfront.c
-index e1c6798889f4..227e86875b08 100644
+index 10df39a8b18d..791b0e453034 100644
 --- a/drivers/block/xen-blkfront.c
 +++ b/drivers/block/xen-blkfront.c
 @@ -132,12 +132,12 @@ static LIST_HEAD(info_list);
