@@ -58,7 +58,6 @@ Patch0119: 0119-ena-async.patch
 Patch0120: 0120-init_task-faster-timerslack.patch
 Patch0121: 0121-ipv4-tcp-tuning-memory.patch
 Patch0122: 0122-mm-reduce-vmstat-wakups.patch
-Patch0123: 0123-nvme-decrease-msleep.patch
 Patch0124: 0124-overload-on-wakeup.patch
 Patch0125: 0125-xen-blkfront-small-tunning-for-block-dev.patch
 Patch0126: 0126-xen-xenbus-don-t-be-slow.patch
@@ -126,7 +125,6 @@ Linux kernel build files
 %patch0120 -p1
 %patch0121 -p1
 %patch0122 -p1
-%patch0123 -p1
 %patch0124 -p1
 %patch0125 -p1
 %patch0126 -p1
