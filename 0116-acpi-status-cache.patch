@@ -23,7 +23,7 @@ index 438df8da6d12..c36ffaa8c37c 100644
  	if (!acpi_device_is_present(device)) {
  		device->flags.initialized = false;
 diff --git a/include/acpi/acpi_bus.h b/include/acpi/acpi_bus.h
-index 3a82faac5767..d4944065ce21 100644
+index 394eb42d0ec1..1d39a646c52b 100644
 --- a/include/acpi/acpi_bus.h
 +++ b/include/acpi/acpi_bus.h
 @@ -360,6 +360,7 @@ struct acpi_device {
