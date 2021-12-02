@@ -17,10 +17,10 @@ logistics for where the patch goes work out better here
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/init/init_task.c b/init/init_task.c
-index 8b08c2e19cbb..3b64f38473b5 100644
+index 2d024066e27b..58337e47aa5f 100644
 --- a/init/init_task.c
 +++ b/init/init_task.c
-@@ -129,7 +129,7 @@ struct task_struct init_task
+@@ -130,7 +130,7 @@ struct task_struct init_task
  	.journal_info	= NULL,
  	INIT_CPU_TIMERS(init_task)
  	.pi_lock	= __RAW_SPIN_LOCK_UNLOCKED(init_task.pi_lock),

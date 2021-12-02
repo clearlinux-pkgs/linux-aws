@@ -8,10 +8,10 @@ Subject: [PATCH] mm: reduce vmstat wakups
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/mm/vmstat.c b/mm/vmstat.c
-index cccee36b289c..22027be8b0c1 100644
+index 8ce2620344b2..8406f82eb001 100644
 --- a/mm/vmstat.c
 +++ b/mm/vmstat.c
-@@ -1831,7 +1831,7 @@ static const struct seq_operations vmstat_op = {
+@@ -1838,7 +1838,7 @@ static const struct seq_operations vmstat_op = {
  
  #ifdef CONFIG_SMP
  static DEFINE_PER_CPU(struct delayed_work, vmstat_work);
