@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86 5.15.4 Kernel Configuration
+# Linux/x86 5.15.6 Kernel Configuration
 #
 CONFIG_CC_VERSION_TEXT="gcc (Clear Linux OS for Intel Architecture) 11.2.1 20211201 releases/gcc-11.2.0-544-g6a43f5c64b"
 CONFIG_CC_IS_GCC=y
@@ -12,6 +12,7 @@ CONFIG_LD_IS_BFD=y
 CONFIG_LD_VERSION=23700
 CONFIG_LLD_VERSION=0
 CONFIG_CC_CAN_LINK=y
+CONFIG_CC_CAN_LINK_STATIC=y
 CONFIG_CC_HAS_ASM_GOTO=y
 CONFIG_CC_HAS_ASM_GOTO_OUTPUT=y
 CONFIG_CC_HAS_ASM_INLINE=y
@@ -3446,6 +3447,7 @@ CONFIG_PSTORE_COMPRESS_DEFAULT="lz4hc"
 # CONFIG_PSTORE_CONSOLE is not set
 # CONFIG_PSTORE_PMSG is not set
 CONFIG_PSTORE_RAM=m
+# CONFIG_PSTORE_BLK is not set
 # CONFIG_SYSV_FS is not set
 # CONFIG_UFS_FS is not set
 # CONFIG_EROFS_FS is not set
@@ -4268,5 +4270,5 @@ CONFIG_ARCH_USE_MEMTEST=y
 
 
 # kernel-config sources:
-# FILEVER=/usr/share/kernel-config/base-5.15-5-52
-# FILEVER=/usr/share/kernel-config/mandatory-5.15-5-52
+# FILEVER=/usr/share/kernel-config/base-5.15-5-51
+# FILEVER=/usr/share/kernel-config/mandatory-5.15-5-51
