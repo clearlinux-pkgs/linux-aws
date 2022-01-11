@@ -8,7 +8,7 @@ Subject: [PATCH] ena: async
  1 file changed, 10 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/net/ethernet/amazon/ena/ena_netdev.c b/drivers/net/ethernet/amazon/ena/ena_netdev.c
-index 0e43000614ab..e9e5a8cd2b59 100644
+index 8f08e0bae300..c2a706866f0b 100644
 --- a/drivers/net/ethernet/amazon/ena/ena_netdev.c
 +++ b/drivers/net/ethernet/amazon/ena/ena_netdev.c
 @@ -8,6 +8,7 @@
@@ -19,7 +19,7 @@ index 0e43000614ab..e9e5a8cd2b59 100644
  #include <linux/ethtool.h>
  #include <linux/kernel.h>
  #include <linux/module.h>
-@@ -4572,6 +4573,13 @@ static struct pci_driver ena_pci_driver = {
+@@ -4581,6 +4582,13 @@ static struct pci_driver ena_pci_driver = {
  	.sriov_configure = pci_sriov_configure_simple,
  };
  
@@ -33,7 +33,7 @@ index 0e43000614ab..e9e5a8cd2b59 100644
  static int __init ena_init(void)
  {
  	ena_wq = create_singlethread_workqueue(DRV_MODULE_NAME);
-@@ -4580,7 +4588,8 @@ static int __init ena_init(void)
+@@ -4589,7 +4597,8 @@ static int __init ena_init(void)
  		return -ENOMEM;
  	}
  
