@@ -1,8 +1,8 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86 5.15.39 Kernel Configuration
+# Linux/x86 5.15.40 Kernel Configuration
 #
-CONFIG_CC_VERSION_TEXT="gcc (Clear Linux OS for Intel Architecture) 12.1.1 20220509 releases/gcc-12.1.0-20-g076aee6b18"
+CONFIG_CC_VERSION_TEXT="gcc (Clear Linux OS for Intel Architecture) 12.1.1 20220512 releases/gcc-12.1.0-30-gf363017e8b"
 CONFIG_CC_IS_GCC=y
 CONFIG_GCC_VERSION=120101
 CONFIG_CLANG_VERSION=0
@@ -326,6 +326,8 @@ CONFIG_X86_X2APIC=y
 CONFIG_X86_MPPARSE=y
 # CONFIG_GOLDFISH is not set
 CONFIG_RETPOLINE=y
+CONFIG_CC_HAS_SLS=y
+# CONFIG_SLS is not set
 CONFIG_X86_CPU_RESCTRL=y
 # CONFIG_X86_EXTENDED_PLATFORM is not set
 # CONFIG_X86_INTEL_LPSS is not set
