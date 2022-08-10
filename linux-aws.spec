@@ -104,7 +104,7 @@ Linux kernel build files
 
 #Serie.patch.start Clear Linux patches
 %patch0101 -p1
-%patch0102 -p1
+#patch0102 -p1
 %patch0103 -p1
 %patch0104 -p1
 %patch0105 -p1
