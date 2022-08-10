@@ -12,7 +12,7 @@ diff --git a/kernel/locking/rwsem.c b/kernel/locking/rwsem.c
 index e63f740c2cc8..1f9dfa8dd879 100644
 --- a/kernel/locking/rwsem.c
 +++ b/kernel/locking/rwsem.c
-@@ -715,6 +715,7 @@ rwsem_spin_on_owner(struct rw_semaphore *sem)
+@@ -724,6 +724,7 @@ rwsem_spin_on_owner(struct rw_semaphore *sem)
  	struct task_struct *new, *owner;
  	unsigned long flags, new_flags;
  	enum owner_state state;
@@ -20,7 +20,7 @@ index e63f740c2cc8..1f9dfa8dd879 100644
  
  	owner = rwsem_owner_flags(sem, &flags);
  	state = rwsem_owner_state(owner, flags);
-@@ -748,7 +749,8 @@ rwsem_spin_on_owner(struct rw_semaphore *sem)
+@@ -757,7 +758,8 @@ rwsem_spin_on_owner(struct rw_semaphore *sem)
  			break;
  		}
  

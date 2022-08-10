@@ -12,7 +12,7 @@ diff --git a/net/ipv4/tcp.c b/net/ipv4/tcp.c
 index ef68d55e0944..1144d2f58899 100644
 --- a/net/ipv4/tcp.c
 +++ b/net/ipv4/tcp.c
-@@ -4589,8 +4589,8 @@ void __init tcp_init(void)
+@@ -4593,8 +4593,8 @@ void __init tcp_init(void)
  	tcp_init_mem();
  	/* Set per-socket limits to no more than 1/128 the pressure threshold */
  	limit = nr_free_buffer_pages() << (PAGE_SHIFT - 7);
