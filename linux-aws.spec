@@ -6,7 +6,7 @@
 
 Name:           linux-aws
 Version:        5.15.78
-Release:        354
+Release:        355
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
@@ -61,6 +61,7 @@ Patch0122: 0122-mm-reduce-vmstat-wakups.patch
 Patch0123: 0123-overload-on-wakeup.patch
 Patch0124: 0124-xen-blkfront-small-tunning-for-block-dev.patch
 Patch0125: 0125-xen-xenbus-don-t-be-slow.patch
+Patch0126: 0126-add-boot-option-to-allow-unsigned-modules.patch
 #Serie.end
 
 %description
@@ -128,6 +129,7 @@ Linux kernel build files
 %patch0123 -p1
 %patch0124 -p1
 %patch0125 -p1
+%patch0126 -p1
 #Serie.patch.end
 
 cp %{SOURCE1} .
