@@ -5,13 +5,13 @@
 #
 
 Name:           linux-aws
-Version:        5.15.110
+Version:        6.1.27
 Release:        384
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.110.tar.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.27.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -52,7 +52,6 @@ Patch0113: 0113-xattr-allow-setting-user.-attributes-on-symlinks-by-.patch
 Patch0114: 0114-zero-extra-registers.patch
 Patch0115: 0115-acpi-cache-ADR.patch
 Patch0116: 0116-acpi-status-cache.patch
-Patch0117: 0117-config-no-Atom.patch
 Patch0118: 0118-e1000e-change-default-policy.patch
 Patch0119: 0119-ena-async.patch
 Patch0120: 0120-init_task-faster-timerslack.patch
@@ -60,7 +59,6 @@ Patch0121: 0121-ipv4-tcp-tuning-memory.patch
 Patch0122: 0122-mm-reduce-vmstat-wakups.patch
 Patch0123: 0123-overload-on-wakeup.patch
 Patch0124: 0124-xen-blkfront-small-tunning-for-block-dev.patch
-Patch0125: 0125-xen-xenbus-don-t-be-slow.patch
 Patch0126: 0126-add-boot-option-to-allow-unsigned-modules.patch
 #Serie.end
 
@@ -95,7 +93,7 @@ Requires:       linux-aws-license = %{version}-%{release}
 Linux kernel build files
 
 %prep
-%setup -q -n linux-5.15.110
+%setup -q -n linux-6.1.27
 
 #cve.patch.start cve patches
 #cve.patch.end
@@ -120,7 +118,6 @@ Linux kernel build files
 %patch0114 -p1
 #%patch0115 -p1
 #%patch0116 -p1
-%patch0117 -p1
 %patch0118 -p1
 #%patch0119 -p1
 %patch0120 -p1
@@ -128,7 +125,6 @@ Linux kernel build files
 %patch0122 -p1
 %patch0123 -p1
 %patch0124 -p1
-%patch0125 -p1
 %patch0126 -p1
 #Serie.patch.end
 

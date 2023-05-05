@@ -3,7 +3,7 @@
 set -euo pipefail
 
 PKG=linux-aws
-LTS_VER=5.15
+LTS_VER=6.1
 SPEC=./$PKG.spec
 
 CUR_VER=$(rpmspec --srpm -q --qf="%{VERSION}" $SPEC)
