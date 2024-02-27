@@ -41,7 +41,6 @@ Patch0102: 0102-give-rdrand-some-credit.patch
 Patch0103: 0103-i8042-decrease-debug-message-level-to-info.patch
 Patch0104: 0104-Increase-the-ext4-default-commit-age.patch
 Patch0105: 0105-init-wait-for-partition-and-retry-scan.patch
-Patch0106: 0106-ksm-wakeups.patch
 Patch0107: 0107-locking-rwsem-spin-faster.patch
 Patch0108: 0108-Migrate-some-systemd-defaults-to-the-kernel-defaults.patch
 Patch0109: 0109-pci-pme-wakeups.patch
@@ -107,7 +106,6 @@ Linux kernel build files
 %patch0103 -p1
 %patch0104 -p1
 %patch0105 -p1
-%patch0106 -p1
 %patch0107 -p1
 %patch0108 -p1
 %patch0109 -p1
