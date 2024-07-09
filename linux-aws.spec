@@ -5,13 +5,13 @@
 #
 
 Name:           linux-aws
-Version:        6.6.37
-Release:        458
+Version:        6.6.38
+Release:        459
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.37.tar.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.38.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -92,7 +92,7 @@ Requires:       linux-aws-license = %{version}-%{release}
 Linux kernel build files
 
 %prep
-%setup -q -n linux-6.6.37
+%setup -q -n linux-6.6.38
 
 #cve.patch.start cve patches
 #cve.patch.end
