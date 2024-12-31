@@ -6,7 +6,7 @@
 
 Name:           linux-aws
 Version:        6.6.68
-Release:        511
+Release:        512
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
@@ -37,7 +37,6 @@ Requires: linux-aws-license = %{version}-%{release}
 
 #Serie.clr 01XX: Clear Linux patches
 Patch0101: 0101-do-accept-in-LIFO-order-for-cache-efficiency.patch
-Patch0102: 0102-give-rdrand-some-credit.patch
 Patch0103: 0103-i8042-decrease-debug-message-level-to-info.patch
 Patch0104: 0104-Increase-the-ext4-default-commit-age.patch
 Patch0105: 0105-init-wait-for-partition-and-retry-scan.patch
@@ -46,17 +45,12 @@ Patch0108: 0108-Migrate-some-systemd-defaults-to-the-kernel-defaults.patch
 Patch0109: 0109-pci-pme-wakeups.patch
 Patch0110: 0110-raid6-add-Kconfig-option-to-skip-raid6-benchmarking.patch
 Patch0111: 0111-smpboot-reuse-timer-calibration.patch
-Patch0112: 0112-use-lfence-instead-of-rep-and-nop.patch
 Patch0113: 0113-xattr-allow-setting-user.-attributes-on-symlinks-by-.patch
 Patch0114: 0114-zero-extra-registers.patch
-Patch0115: 0115-acpi-cache-ADR.patch
-Patch0116: 0116-acpi-status-cache.patch
 Patch0118: 0118-e1000e-change-default-policy.patch
-Patch0119: 0119-ena-async.patch
 Patch0120: 0120-init_task-faster-timerslack.patch
 Patch0121: 0121-ipv4-tcp-tuning-memory.patch
 Patch0122: 0122-mm-reduce-vmstat-wakups.patch
-Patch0123: 0123-overload-on-wakeup.patch
 Patch0124: 0124-xen-blkfront-small-tunning-for-block-dev.patch
 Patch0126: 0126-add-boot-option-to-allow-unsigned-modules.patch
 #Serie.end
@@ -102,7 +96,6 @@ Linux kernel build files
 
 #Serie.patch.start Clear Linux patches
 %patch0101 -p1
-#patch0102 -p1
 %patch0103 -p1
 %patch0104 -p1
 %patch0105 -p1
@@ -111,17 +104,12 @@ Linux kernel build files
 %patch0109 -p1
 %patch0110 -p1
 %patch0111 -p1
-%patch0112 -p1
 %patch0113 -p1
 %patch0114 -p1
-#%patch0115 -p1
-#%patch0116 -p1
 %patch0118 -p1
-#%patch0119 -p1
 %patch0120 -p1
 %patch0121 -p1
 %patch0122 -p1
-%patch0123 -p1
 %patch0124 -p1
 %patch0126 -p1
 #Serie.patch.end
