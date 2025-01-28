@@ -86,7 +86,7 @@ Requires:       linux-aws-license = %{version}-%{release}
 Linux kernel build files
 
 %prep
-%setup -q -n linux-6.6.74
+%setup -q -n linux-6.12.11
 
 #cve.patch.start cve patches
 #cve.patch.end
