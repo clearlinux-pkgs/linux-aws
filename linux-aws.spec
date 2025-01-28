@@ -46,7 +46,6 @@ Patch0109: 0109-pci-pme-wakeups.patch
 Patch0110: 0110-raid6-add-Kconfig-option-to-skip-raid6-benchmarking.patch
 Patch0111: 0111-smpboot-reuse-timer-calibration.patch
 Patch0113: 0113-xattr-allow-setting-user.-attributes-on-symlinks-by-.patch
-Patch0114: 0114-zero-extra-registers.patch
 Patch0118: 0118-e1000e-change-default-policy.patch
 Patch0120: 0120-init_task-faster-timerslack.patch
 Patch0121: 0121-ipv4-tcp-tuning-memory.patch
@@ -105,7 +104,6 @@ Linux kernel build files
 %patch0110 -p1
 %patch0111 -p1
 %patch0113 -p1
-%patch0114 -p1
 %patch0118 -p1
 %patch0120 -p1
 %patch0121 -p1
