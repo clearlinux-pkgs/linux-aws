@@ -5,13 +5,13 @@
 #
 
 Name:           linux-aws
-Version:        6.6.74
-Release:        529
+Version:        6.12.11
+Release:        530
 License:        GPL-2.0
 Summary:        The Linux kernel for use in the AWS cloud
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.74.tar.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.11.tar.xz
 Source1:        config
 Source2:        cmdline
 
